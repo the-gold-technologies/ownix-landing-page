@@ -131,24 +131,13 @@ export default function AboutPlatform() {
               </span>
             </h2>
 
-            {/* Structured Paragraph Sequence matching exact user text with premium typographic spacing */}
-            <div className="space-y-5 text-slate-600 leading-relaxed font-normal">
-              <p className="gsap-about-text text-lg font-semibold text-slate-900 leading-relaxed">
-                Backed by strong real estate construction and market expertise,
-                our platform is designed to help investors make smarter property
-                investment decisions.
+            {/* Extremely concise, high-impact institutional statements inspired by Stake */}
+            <div className="space-y-4 text-slate-600 leading-relaxed font-normal">
+              <p className="gsap-about-text text-base sm:text-lg font-medium text-slate-800">
+                Backed by construction and market expertise, we help investors scale their wealth securely through high-yield property assets.
               </p>
-
-              <p className="gsap-about-text text-base text-slate-600 leading-relaxed">
-                With deep industry knowledge and local market understanding, we
-                focus on identifying properties with strong appreciation
-                potential and sustainable rental returns.
-              </p>
-
-              <p className="gsap-about-text text-base text-slate-600 leading-relaxed">
-                As one of the early movers in North India’s Ownix real estate
-                market, Ownix aims to make quality real estate investment
-                opportunities accessible to a wider audience.
+              <p className="gsap-about-text text-sm sm:text-base text-slate-500">
+                As a pioneer in North India’s digital real estate sector, Ownix strips away operational complexity to deliver sustainable rental income and long-term capital appreciation.
               </p>
             </div>
 

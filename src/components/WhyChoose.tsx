@@ -121,19 +121,19 @@ export default function WhyChoose() {
     },
   ];
 
-  // Exact verbatim Content Paragraphs required by the user
+  // Extremely concise, high-impact Core Pillar statements inspired by getstake.com
   const paragraphs = [
     {
       label: "Collective Ownership",
-      text: "Traditionally, investing in real estate required significant capital and long-term financial commitment. Ownix changes that by allowing multiple investors to collectively own premium properties.",
+      text: "Co-own prime real estate with verified fractional shares, removing traditional high-capital entry thresholds.",
     },
     {
       label: "Reduced Thresholds",
-      text: "Whether you are a first-time investor or someone looking to diversify your portfolio, Ownix ownership gives you the opportunity to enter the real estate market with lower investment amounts.",
+      text: "Access institutional-grade property portfolios starting from optimized lower investment tiers.",
     },
     {
       label: "Expert Guidance",
-      text: "By diversifying investments across properties, investors can reduce overall investment risk while gaining exposure to premium real estate assets. Ownix also provides complete guidance and handholding throughout the investment journey, making it easier even for investors with no prior real estate investing experience.",
+      text: "Mitigate market risk through asset diversification alongside complete end-to-end investment handholding.",
     },
   ];
 

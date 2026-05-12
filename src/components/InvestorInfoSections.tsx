@@ -111,19 +111,10 @@ export default function InvestorInfoSections() {
                 Why Ownix Ownership is Growing
               </h2>
 
-              {/* Verbatim Copy Paragraphs rendered cleanly */}
-              <div className="space-y-4">
-                <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
-                  Ownix real estate ownership allows investors to participate in
-                  premium property investments without the burden of purchasing
-                  an entire property independently.
-                </p>
-
-                <p className="text-sm sm:text-base text-slate-500 leading-relaxed">
-                  This investment model is gaining popularity among modern
-                  investors who seek:
-                </p>
-              </div>
+              {/* Extremely concise, high-impact overview */}
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+                Access premium real estate fractionally without full independent capital burdens, engineered directly for modern investors seeking:
+              </p>
             </div>
 
             {/* Right Premium Matrix Checklist Grid */}
@@ -192,17 +183,9 @@ export default function InvestorInfoSections() {
           </h3>
 
           {/* Unboxed Open Copy Flow */}
-          <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10 text-left sm:text-center">
-            <p className="font-medium text-slate-800">
-              Our platform allows you to invest based on units available in each
-              property. Investment amounts may vary depending on the property
-              type, location, and growth potential.
-            </p>
-            <p>
-              You can start with smaller investments and gradually build your
-              real estate portfolio over time.
-            </p>
-          </div>
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto mb-10">
+            Scale your exposure starting from optimized unit fractions. Amounts map elastically to property tiers, locations, and projected yield targets.
+          </p>
 
           {/* Unboxed Premium Standalone Trigger */}
           <div>

@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <SmoothScroll>
       <Navbar />
-      <main className="flex-1 w-full overflow-x-hidden">
+      <main className="flex-1 w-full">
         <Hero />
         <WhyChoose />
         <AboutPlatform />

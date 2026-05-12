@@ -55,10 +55,11 @@ export default function Hero() {
         {/* Top Header Section perfectly mapped to standard laptop fold geometry */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6 pt-2">
           {/* Left Side: Scaled Ultra-Impact Headline */}
-          <div className="max-w-2xl text-left hero-headline">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12] sm:leading-[1.08]">
-              Why Let Premium Real <br className="hidden lg:inline" />
-              Estate Stay Out of Reach?
+          <div className="w-full lg:w-[62%] max-w-4xl text-left hero-headline shrink-0 lg:pr-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] sm:leading-[1.08]">
+              Why Let Real Estate
+              <br />
+              Stay Out of Reach?
             </h1>
           </div>
 
@@ -198,6 +199,45 @@ export default function Hero() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Exquisite Infinite Ticker Marquee Strip below Hero */}
+      <div className="mt-12 sm:mt-16 border-y border-emerald-900/40 bg-emerald-950 py-3 sm:py-3.5 overflow-hidden relative w-full flex select-none">
+        {/* Soft left/right gradients for premium blending depth */}
+        <div className="absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-emerald-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-emerald-950 to-transparent z-10 pointer-events-none" />
+
+        {/* Scrolling flex wrapper */}
+        <div className="flex shrink-0 animate-marquee items-center gap-8 min-w-full justify-around">
+          {[
+            "✦ Institutional Grade Security",
+            "✦ Zero Operations Overhead",
+            "✦ Regulated Fractional Units",
+            "✦ High-Yield Premium Assets",
+            "✦ Verified Builder Network",
+            "✦ Seamless Digital Ownership",
+          ].map((item, idx) => (
+            <span key={idx} className="text-xs sm:text-sm font-mono font-bold tracking-widest text-emerald-400/90 uppercase whitespace-nowrap">
+              {item}
+            </span>
+          ))}
+        </div>
+
+        {/* Duplicate track block ensuring visual seamlessness */}
+        <div className="flex shrink-0 animate-marquee items-center gap-8 min-w-full justify-around" aria-hidden="true">
+          {[
+            "✦ Institutional Grade Security",
+            "✦ Zero Operations Overhead",
+            "✦ Regulated Fractional Units",
+            "✦ High-Yield Premium Assets",
+            "✦ Verified Builder Network",
+            "✦ Seamless Digital Ownership",
+          ].map((item, idx) => (
+            <span key={`dup-${idx}`} className="text-xs sm:text-sm font-mono font-bold tracking-widest text-emerald-400/90 uppercase whitespace-nowrap">
+              {item}
+            </span>
+          ))}
         </div>
       </div>
     </section>

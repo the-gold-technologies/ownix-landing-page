@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Search,
   LayoutGrid,
   KeyRound,
   Banknote,
   Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,12 +19,43 @@ if (typeof window !== "undefined") {
 
 export default function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
 
+  const steps = [
+    {
+      title: "Browse Listed Properties",
+      subtitle: "Explore",
+      desc: "Explore curated, investment-ready real estate opportunities carefully sourced by market experts across premium and high-growth locations worldwide.",
+      icon: Search,
+      bgImage: "/images/sustainable_luxury_tower.png",
+    },
+    {
+      title: "Choose Investment Units",
+      subtitle: "Invest",
+      desc: "Select fractional ownership units that align perfectly with your investment goals, preferred locations, and long-term financial strategy.",
+      icon: LayoutGrid,
+      bgImage: "/images/concept_pavilion.png",
+    },
+    {
+      title: "Become an Owner",
+      subtitle: "Execute",
+      desc: "Complete secure digital co-ownership transactions seamlessly and gain verified ownership access from anywhere in the world instantly.",
+      icon: KeyRound,
+      bgImage: "/images/concept_penthouse.png",
+    },
+    {
+      title: "Earn Returns",
+      subtitle: "Yield",
+      desc: "Monitor automated rental income, long-term property appreciation, and portfolio growth through a simplified investor dashboard experience.",
+      icon: Banknote,
+      bgImage: "/images/concept_atrium.png",
+    },
+  ];
+  // Header entrance animation remains pure GSAP
   useGSAP(
     () => {
       if (!containerRef.current) return;
 
-      // Header entrance animation
       gsap.fromTo(
         ".gsap-hiw-header",
         { opacity: 0, y: 30 },
@@ -34,213 +66,153 @@ export default function HowItWorks() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 85%",
+            start: "top 80%",
             toggleActions: "play none none none",
           },
         },
       );
-
-      // Central drawing line scroll scrub animation
-      gsap.fromTo(
-        ".gsap-drawing-line",
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 60%",
-            end: "bottom 85%",
-            scrub: true,
-          },
-        },
-      );
-
-      // Animate each timeline row natively on scroll crossing
-      gsap.utils.toArray(".gsap-timeline-row").forEach((row: any, index: number) => {
-        const isEven = index % 2 === 0; // Even row index means text is on the Right
-        const textCol = row.querySelector(".gsap-timeline-text");
-        const iconCol = row.querySelector(".gsap-timeline-icon");
-
-        if (!textCol || !iconCol) return;
-
-        // Animate Text Column sweeping in from its side
-        gsap.fromTo(
-          textCol,
-          { opacity: 0, x: isEven ? 50 : -50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.85,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: row,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
-
-        // Animate Line-Art Icon Column scaling and locking into layout
-        gsap.fromTo(
-          iconCol,
-          { opacity: 0, scale: 0.75, x: isEven ? -30 : 30 },
-          {
-            opacity: 1,
-            scale: 1,
-            x: 0,
-            duration: 0.85,
-            ease: "back.out(1.5)",
-            scrollTrigger: {
-              trigger: row,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
-      });
     },
     { scope: containerRef },
   );
 
-  const steps = [
-    {
-      title: "Browse Listed Properties",
-      desc: "Explore carefully selected investment-ready properties with detailed information, pricing, and investment opportunities.",
-      icon: Search,
-    },
-    {
-      title: "Choose Your Investment Units",
-      desc: "Each property is divided into multiple investment units, allowing you to purchase one or more units based on your budget.",
-      icon: LayoutGrid,
-    },
-    {
-      title: "Become a Ownix Owner",
-      desc: "Invest digitally and become a co-owner of premium real estate assets.",
-      icon: KeyRound,
-    },
-    {
-      title: "Earn Returns",
-      desc: "Benefit from rental income and/or long-term property appreciation as the value of the property grows over time.",
-      icon: Banknote,
-    },
-  ];
+  // Native IntersectionObserver guarantees trigger accuracy based on actual physical pixels rendered
+  // Immune to lazy loading layout shifts or ScrollTrigger early evaluations
+  useEffect(() => {
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const match = entry.target.id.match(/step-text-block-(\d+)/);
+          if (match) {
+            setActiveStep(Number(match[1]));
+          }
+        }
+      });
+    };
+
+    // Construct a highly precise trigger line centered exactly at the sticky image's focal plane
+    const observer = new IntersectionObserver(handleIntersect, {
+      root: null,
+      // Target detection line roughly 40% from top of viewport where the image center rests
+      rootMargin: "-38% 0px -58% 0px",
+      threshold: 0,
+    });
+
+    steps.forEach((_, idx) => {
+      const el = document.getElementById(`step-text-block-${idx}`);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
       id="how-it-works"
       ref={containerRef}
-      className="py-24 sm:py-32 bg-white border-b border-slate-100 relative overflow-hidden opacity-99"
+      className="py-24 sm:py-32 bg-white border-b border-slate-100 relative opacity-99 select-none"
     >
-      {/* Subtle ambient light glow for institutional depth */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[70%] h-80 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Supreme Title Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 gsap-hiw-header">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Supreme Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 gsap-hiw-header">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 mb-4 shadow-2xs font-mono">
             <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
-              Section 4 – How It Works
+              Section 4 – Workflow Architecture
             </span>
           </div>
-          
-          {/* Preserved Verbatim User Heading */}
+
           <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
             Simple. Transparent. Accessible.
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            A streamlined digital investment pipeline built to guide you securely from direct exploration to optimized portfolio yields.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            A streamlined digital investment pipeline built to guide you
+            securely from direct exploration to optimized portfolio yields.
           </p>
         </div>
 
-        {/* Precise Vertical Alternating Split Timeline Container */}
-        <div className="relative pt-4 pb-8">
-          
-          {/* Continuous Central Axis Base Track Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-100 transform -translate-x-1/2 z-0" />
-
-          {/* Animated Scrubbed Foreground Progress Line */}
-          <div className="gsap-drawing-line hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-emerald-500 to-teal-600 transform -translate-x-1/2 z-10 origin-top scale-y-0" />
-
-          {/* Stepped Process Core Rows Sequence */}
-          <div className="space-y-16 sm:space-y-24 relative z-10">
+        {/* Pure Split Layout Matrix */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
+          {/* LEFT SIDE: Scrolling Step Blocks mapped precisely to viewport bounds */}
+          <div className="lg:col-span-6 relative z-10 order-2 lg:order-1">
             {steps.map((step, idx) => {
-              const IconComp = step.icon;
-              const isEven = idx % 2 === 0; // true for Step 1 and Step 3
+              const isActive = activeStep === idx;
 
               return (
                 <div
                   key={idx}
-                  id={`how-it-works-step-${idx + 1}`}
-                  className="gsap-timeline-row grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center relative"
+                  id={`step-text-block-${idx}`}
+                  /* Each wrapper takes exactly the height of the sticky frame to guarantee pixel-perfect vertical centering */
+                  className="h-[380px] sm:h-[480px] flex flex-col justify-center text-left relative cursor-pointer group"
+                  onClick={() => setActiveStep(idx)}
                 >
-                  
-                  {/* --- Column 1: Line-Art Nested Ring Icon side --- */}
-                  {/* On Even rows (Step 1, 3), icon sits on the Left. On Odd rows (Step 2, 4), icon sits on the Right on desktop. */}
                   <div
-                    className={`gsap-timeline-icon flex ${
-                      isEven
-                        ? "order-1 md:order-1 justify-start md:justify-end md:pr-12"
-                        : "order-1 md:order-2 justify-start md:pl-12"
+                    className={`transition-all duration-500 flex gap-6 sm:gap-8 items-center ${
+                      isActive
+                        ? "opacity-100 translate-x-2"
+                        : "opacity-30 group-hover:opacity-60 translate-x-0"
                     }`}
                   >
-                    {/* Breathtaking double concentric icon ring modeling the user reference graphic */}
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-emerald-600/30 bg-white shadow-sm flex items-center justify-center relative group hover:scale-105 transition-transform duration-400 shrink-0">
-                      {/* Inner dashed circle rendering the line-art styling */}
-                      <div className="absolute inset-2 sm:inset-2.5 rounded-full border border-dashed border-emerald-600/40 flex items-center justify-center bg-emerald-50/20">
-                        <IconComp className="w-10 h-10 sm:w-11 sm:h-11 text-emerald-600 stroke-[1.5]" />
+                    {/* Step Index Indicator */}
+                    <div className="shrink-0">
+                      <div
+                        className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono font-bold text-lg transition-all duration-500 ${
+                          isActive
+                            ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20 scale-105"
+                            : "bg-slate-100 text-slate-400"
+                        }`}
+                      >
+                        {idx + 1}
                       </div>
                     </div>
-                  </div>
 
-                  {/* --- Column 2: Text Pillar side --- */}
-                  {/* On Even rows (Step 1, 3), text sits on the Right. On Odd rows (Step 2, 4), text sits on the Left on desktop. */}
-                  <div
-                    className={`gsap-timeline-text flex flex-col ${
-                      isEven
-                        ? "order-2 md:order-2 md:pl-12 text-left"
-                        : "order-2 md:order-1 md:pr-12 text-left md:text-right md:items-end"
-                    }`}
-                  >
-                    {/* Solid numeric index dot exactly mirroring the reference upload layout */}
-                    <div className="w-9 h-9 rounded-full bg-emerald-600 text-white font-mono font-bold text-sm flex items-center justify-center shadow-sm mb-4 select-none">
-                      {idx + 1}
+                    {/* Copy Content */}
+                    <div className="space-y-1.5 max-w-md">
+                      <div className="text-xs font-bold font-mono tracking-widest text-emerald-600 uppercase">
+                        {step.subtitle}
+                      </div>
+                      <h3
+                        className={`text-2xl sm:text-3xl font-extrabold tracking-tight transition-colors duration-500 ${
+                          isActive ? "text-slate-900" : "text-slate-500"
+                        }`}
+                      >
+                        {step.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal pt-1">
+                        {step.desc}
+                      </p>
                     </div>
-
-                    {/* Exact Verbatim Title */}
-                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-3">
-                      {step.title}
-                    </h3>
-
-                    {/* Exact Verbatim Description */}
-                    <p className="text-base text-slate-600 leading-relaxed max-w-md">
-                      {step.desc}
-                    </p>
                   </div>
-
                 </div>
               );
             })}
           </div>
 
+          {/* RIGHT SIDE: Compact, Sticky Pure Image Viewport with increased height */}
+          <div className="lg:col-span-6 lg:sticky lg:top-36 h-[380px] sm:h-[480px] w-full flex items-center justify-center order-1 lg:order-2">
+            {/* Elegant compact encasing frame focusing fully on the unadorned high-fidelity photo */}
+            <div className="relative w-full max-w-md h-full rounded-3xl p-2 bg-white border border-slate-200/80 shadow-2xl overflow-hidden">
+              <div className="relative w-full h-full rounded-[1.3rem] overflow-hidden bg-slate-100">
+                <img
+                  src={steps[activeStep].bgImage}
+                  alt={steps[activeStep].title}
+                  key={activeStep}
+                  className="w-full h-full object-cover animate-fade-in duration-700 ease-out"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Actionable Explorer Hook CTA */}
-        <div className="mt-16 text-center">
+        {/* Global CTA Action Button */}
+        <div className="mt-12 sm:mt-16 text-center">
           <a
             href="#properties"
-            id="how-it-works-start-btn"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200/80 text-sm font-bold text-emerald-700 hover:text-emerald-800 hover:border-emerald-200 transition-all shadow-2xs group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-stone-50 border border-slate-200/80 text-sm font-bold text-emerald-800 hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-2xs group"
           >
-            <span>Ready to explore listed properties? View below</span>
-            <span className="group-hover:translate-y-0.5 transition-transform font-mono font-bold text-emerald-600">
-              ↓
-            </span>
+            <span>Explore live income-generating deals below</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
-
       </div>
     </section>
   );
