@@ -289,21 +289,33 @@ export default function WhyChoose() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded-md ${
-                          isActive ? "bg-emerald-50 text-emerald-700" : "bg-slate-100 text-slate-500"
-                        }`}>
+                        <span
+                          className={`text-xs font-mono font-bold px-2 py-0.5 rounded-md ${
+                            isActive
+                              ? "bg-emerald-50 text-emerald-700"
+                              : "bg-slate-100 text-slate-500"
+                          }`}
+                        >
                           0{idx + 1}
                         </span>
-                        <h4 className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
-                          isActive ? "text-slate-900 font-extrabold" : "text-slate-700"
-                        }`}>
+                        <h4
+                          className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
+                            isActive
+                              ? "text-slate-900 font-extrabold"
+                              : "text-slate-700"
+                          }`}
+                        >
                           {p.label}
                         </h4>
                       </div>
 
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 ${
-                        isActive ? "bg-emerald-50 text-emerald-600 rotate-180" : "text-slate-400"
-                      }`}>
+                      <div
+                        className={`w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 ${
+                          isActive
+                            ? "bg-emerald-50 text-emerald-600 rotate-180"
+                            : "text-slate-400"
+                        }`}
+                      >
                         <span className="text-xs font-bold">▼</span>
                       </div>
                     </div>
