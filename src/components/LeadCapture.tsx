@@ -1,9 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Mail, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function LeadCapture() {
+  const containerRef = useRef<HTMLElement>(null);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -13,6 +21,45 @@ export default function LeadCapture() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+
+    // Fade-in left column side block
+    gsap.fromTo(
+      ".gsap-lead-left",
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Zoom/slide right form block
+    gsap.fromTo(
+      ".gsap-lead-form",
+      { opacity: 0, scale: 0.95, y: 30 },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, { scope: containerRef });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -44,13 +91,14 @@ export default function LeadCapture() {
   return (
     <section
       id="lead-capture"
-      className="py-20 sm:py-28 bg-slate-50/80 relative overflow-hidden border-t border-slate-100"
+      ref={containerRef}
+      className="py-20 sm:py-28 bg-slate-50/80 relative overflow-hidden border-t border-slate-100 opacity-99"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Seamless Grid inspired by the reference reference */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Premium Minimalist Typography & Contact Elements */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 gsap-lead-left">
             {/* Top helper text */}
             <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 font-mono">
               INVESTMENT ASSISTANCE

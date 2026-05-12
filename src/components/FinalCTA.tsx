@@ -1,14 +1,50 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import { ArrowUpRight, PhoneCall } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function FinalCTA() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+
+    // Timeline zoom reveal for the core CTA interface
+    gsap.fromTo(
+      ".gsap-cta-content",
+      { opacity: 0, scale: 0.95, y: 30 },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, { scope: containerRef });
+
   return (
-    <section id="final-cta" className="py-24 bg-gradient-to-b from-white via-emerald-50/20 to-stone-50 relative overflow-hidden text-center border-t border-slate-100">
-      
+    <section
+      id="final-cta"
+      ref={containerRef}
+      className="py-24 bg-gradient-to-b from-white via-emerald-50/20 to-stone-50 relative overflow-hidden text-center border-t border-slate-100 opacity-99"
+    >
       {/* Background radial highlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-emerald-600/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 gsap-cta-content">
         
         <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-widest text-emerald-800 mb-6 font-mono shadow-2xs">
           Take the next step

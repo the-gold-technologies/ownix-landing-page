@@ -1,19 +1,51 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import { MapPin, Mail, Phone } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+
+    gsap.fromTo(
+      ".gsap-footer-col",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, { scope: containerRef });
 
   return (
     <footer
       id="footer"
-      className="bg-white border-t border-slate-100 relative overflow-hidden text-slate-600"
+      ref={containerRef}
+      className="bg-white border-t border-slate-100 relative overflow-hidden text-slate-600 opacity-99"
     >
       {/* Primary Multi-Column Canvas Inspired directly by the uploaded mockup */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 text-left">
           {/* Column 1: Brand Identity & Social Icons */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
+          <div className="lg:col-span-4 flex flex-col justify-between gsap-footer-col">
             <div>
               {/* Brand Header side-by-side */}
               <div className="flex items-center gap-2.5 mb-5">
@@ -79,7 +111,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 gsap-footer-col">
             <h4 className="font-bold text-slate-900 text-sm mb-5">
               Quick Links
             </h4>
@@ -129,7 +161,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Legal & Privacy Framework */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 gsap-footer-col">
             <h4 className="font-bold text-slate-900 text-sm mb-5">
               Legal & Privacy
             </h4>
@@ -179,7 +211,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact Us replicating precise icon-row spacing */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 gsap-footer-col">
             <h4 className="font-bold text-slate-900 text-sm mb-5">
               Contact Us
             </h4>

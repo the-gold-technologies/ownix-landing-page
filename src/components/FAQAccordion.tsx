@@ -1,9 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function FAQAccordion() {
+  const containerRef = useRef<HTMLElement>(null);
   const faqs = [
     {
       q: "What is Ownix real estate ownership?",
@@ -37,8 +45,44 @@ export default function FAQAccordion() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useGSAP(() => {
+    if (!containerRef.current) return;
+
+    gsap.fromTo(
+      ".gsap-faq-header",
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".gsap-faq-list",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, { scope: containerRef });
+
   return (
-    <section id="faqs" className="py-20 sm:py-32 bg-white relative overflow-hidden border-b border-slate-100">
+    <section id="faqs" ref={containerRef} className="py-20 sm:py-32 bg-white relative overflow-hidden border-b border-slate-100 opacity-99">
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -46,7 +90,7 @@ export default function FAQAccordion() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Left Column: Reference-Grade Pill Tag & Split Typography */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32 pt-2">
+          <div className="lg:col-span-5 lg:sticky lg:top-32 pt-2 gsap-faq-header">
             
             {/* Soft accent pill tag mimicking reference layout verbatim */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-xs font-medium text-emerald-700 mb-5 border border-emerald-100/50">
@@ -64,7 +108,7 @@ export default function FAQAccordion() {
 
 
           {/* Right Column: Stacked Rounded Box Panels matching the mock */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 gsap-faq-list">
             <div className="space-y-4">
               {faqs.map((faq, idx) => {
                 const isOpen = openIndex === idx;

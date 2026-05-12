@@ -1,129 +1,233 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import {
   Search,
   LayoutGrid,
   KeyRound,
   Banknote,
   Sparkles,
-  ArrowRight,
 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function HowItWorks() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!containerRef.current) return;
+
+      // Header entrance animation
+      gsap.fromTo(
+        ".gsap-hiw-header",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+
+      // Central drawing line scroll scrub animation
+      gsap.fromTo(
+        ".gsap-drawing-line",
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 60%",
+            end: "bottom 85%",
+            scrub: true,
+          },
+        },
+      );
+
+      // Animate each timeline row natively on scroll crossing
+      gsap.utils.toArray(".gsap-timeline-row").forEach((row: any, index: number) => {
+        const isEven = index % 2 === 0; // Even row index means text is on the Right
+        const textCol = row.querySelector(".gsap-timeline-text");
+        const iconCol = row.querySelector(".gsap-timeline-icon");
+
+        if (!textCol || !iconCol) return;
+
+        // Animate Text Column sweeping in from its side
+        gsap.fromTo(
+          textCol,
+          { opacity: 0, x: isEven ? 50 : -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.85,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: row,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+
+        // Animate Line-Art Icon Column scaling and locking into layout
+        gsap.fromTo(
+          iconCol,
+          { opacity: 0, scale: 0.75, x: isEven ? -30 : 30 },
+          {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            duration: 0.85,
+            ease: "back.out(1.5)",
+            scrollTrigger: {
+              trigger: row,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      });
+    },
+    { scope: containerRef },
+  );
+
   const steps = [
     {
-      num: "01",
-      stepTitle: "Step 1",
       title: "Browse Listed Properties",
       desc: "Explore carefully selected investment-ready properties with detailed information, pricing, and investment opportunities.",
       icon: Search,
-      tag: "Exploration",
     },
     {
-      num: "02",
-      stepTitle: "Step 2",
       title: "Choose Your Investment Units",
       desc: "Each property is divided into multiple investment units, allowing you to purchase one or more units based on your budget.",
       icon: LayoutGrid,
-      tag: "Allocation",
     },
     {
-      num: "03",
-      stepTitle: "Step 3",
       title: "Become a Ownix Owner",
       desc: "Invest digitally and become a co-owner of premium real estate assets.",
       icon: KeyRound,
-      tag: "Acquisition",
     },
     {
-      num: "04",
-      stepTitle: "Step 4",
       title: "Earn Returns",
       desc: "Benefit from rental income and/or long-term property appreciation as the value of the property grows over time.",
       icon: Banknote,
-      tag: "Yield & Growth",
     },
   ];
 
   return (
     <section
       id="how-it-works"
-      className="py-24 sm:py-32 bg-stone-50/40 border-b border-slate-100 relative overflow-hidden"
+      ref={containerRef}
+      className="py-24 sm:py-32 bg-white border-b border-slate-100 relative overflow-hidden opacity-99"
     >
-      {/* Delicate background illumination streak */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[80%] h-60 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Subtle ambient light glow for institutional depth */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[70%] h-80 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* Supreme Title Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200/80 mb-4 shadow-2xs font-mono">
+        <div className="text-center max-w-3xl mx-auto mb-20 gsap-hiw-header">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 mb-4 shadow-2xs font-mono">
             <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
               Section 4 – How It Works
             </span>
           </div>
+          
+          {/* Preserved Verbatim User Heading */}
           <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
             Simple. Transparent. Accessible.
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            A streamlined digital investment pipeline built to guide you
-            securely from direct exploration to optimized portfolio yields in
-            four intuitive phases.
+            A streamlined digital investment pipeline built to guide you securely from direct exploration to optimized portfolio yields.
           </p>
         </div>
 
-        {/* Stepped Process Core Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative pt-4">
-          {/* Exquisite integrated connecting progress line on Desktop */}
-          <div className="hidden lg:block absolute top-[44px] left-[13%] right-[13%] h-[2px] bg-gradient-to-r from-emerald-100 via-emerald-500/40 to-emerald-100 z-0" />
+        {/* Precise Vertical Alternating Split Timeline Container */}
+        <div className="relative pt-4 pb-8">
+          
+          {/* Continuous Central Axis Base Track Line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-100 transform -translate-x-1/2 z-0" />
 
-          {steps.map((step, idx) => {
-            const IconComp = step.icon;
-            return (
-              <div
-                key={idx}
-                id={`how-it-works-step-${idx + 1}`}
-                className="relative z-10 p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-emerald-600 transition-all duration-300 group hover:-translate-y-1 shadow-2xs hover:shadow-xl flex flex-col justify-between"
-              >
-                {/* Internal Card Structure */}
-                <div>
-                  {/* Header Row inside Card: Animated Sequence Pill & Icon */}
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="px-3 py-1 rounded-full bg-slate-50 text-[10px] font-bold text-slate-500 font-mono tracking-wider border border-slate-100 group-hover:bg-emerald-50 group-hover:text-emerald-700 group-hover:border-emerald-100 transition-colors duration-300 uppercase">
-                      {step.stepTitle}
-                    </span>
+          {/* Animated Scrubbed Foreground Progress Line */}
+          <div className="gsap-drawing-line hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-emerald-500 to-teal-600 transform -translate-x-1/2 z-10 origin-top scale-y-0" />
 
-                    <div className="w-11 h-11 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-2xs">
-                      <IconComp className="w-4 h-4" />
+          {/* Stepped Process Core Rows Sequence */}
+          <div className="space-y-16 sm:space-y-24 relative z-10">
+            {steps.map((step, idx) => {
+              const IconComp = step.icon;
+              const isEven = idx % 2 === 0; // true for Step 1 and Step 3
+
+              return (
+                <div
+                  key={idx}
+                  id={`how-it-works-step-${idx + 1}`}
+                  className="gsap-timeline-row grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center relative"
+                >
+                  
+                  {/* --- Column 1: Line-Art Nested Ring Icon side --- */}
+                  {/* On Even rows (Step 1, 3), icon sits on the Left. On Odd rows (Step 2, 4), icon sits on the Right on desktop. */}
+                  <div
+                    className={`gsap-timeline-icon flex ${
+                      isEven
+                        ? "order-1 md:order-1 justify-start md:justify-end md:pr-12"
+                        : "order-1 md:order-2 justify-start md:pl-12"
+                    }`}
+                  >
+                    {/* Breathtaking double concentric icon ring modeling the user reference graphic */}
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-emerald-600/30 bg-white shadow-sm flex items-center justify-center relative group hover:scale-105 transition-transform duration-400 shrink-0">
+                      {/* Inner dashed circle rendering the line-art styling */}
+                      <div className="absolute inset-2 sm:inset-2.5 rounded-full border border-dashed border-emerald-600/40 flex items-center justify-center bg-emerald-50/20">
+                        <IconComp className="w-10 h-10 sm:w-11 sm:h-11 text-emerald-600 stroke-[1.5]" />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Large Stylized Number Accent */}
-                  <div className="text-xs font-mono font-bold text-slate-300 group-hover:text-emerald-600 transition-colors mb-2">
-                    / Phase {step.num}
+                  {/* --- Column 2: Text Pillar side --- */}
+                  {/* On Even rows (Step 1, 3), text sits on the Right. On Odd rows (Step 2, 4), text sits on the Left on desktop. */}
+                  <div
+                    className={`gsap-timeline-text flex flex-col ${
+                      isEven
+                        ? "order-2 md:order-2 md:pl-12 text-left"
+                        : "order-2 md:order-1 md:pr-12 text-left md:text-right md:items-end"
+                    }`}
+                  >
+                    {/* Solid numeric index dot exactly mirroring the reference upload layout */}
+                    <div className="w-9 h-9 rounded-full bg-emerald-600 text-white font-mono font-bold text-sm flex items-center justify-center shadow-sm mb-4 select-none">
+                      {idx + 1}
+                    </div>
+
+                    {/* Exact Verbatim Title */}
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-3">
+                      {step.title}
+                    </h3>
+
+                    {/* Exact Verbatim Description */}
+                    <p className="text-base text-slate-600 leading-relaxed max-w-md">
+                      {step.desc}
+                    </p>
                   </div>
 
-                  {/* Exact Verbatim Title */}
-                  <h3 className="text-lg font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-emerald-700 transition-colors duration-200">
-                    {step.title}
-                  </h3>
-
-                  {/* Exact Verbatim Description */}
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {step.desc}
-                  </p>
                 </div>
+              );
+            })}
+          </div>
 
-                {/* Sub-tag indicator at bottom */}
-                <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between text-[11px] font-bold text-slate-400 group-hover:text-emerald-600 transition-colors">
-                  <span>{step.tag}</span>
-                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            );
-          })}
         </div>
 
-        {/* Actionable Explorer Hook */}
+        {/* Actionable Explorer Hook CTA */}
         <div className="mt-16 text-center">
           <a
             href="#properties"
@@ -136,6 +240,7 @@ export default function HowItWorks() {
             </span>
           </a>
         </div>
+
       </div>
     </section>
   );

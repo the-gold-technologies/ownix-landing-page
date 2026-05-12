@@ -10,10 +10,11 @@ import LeadCapture from "@/components/LeadCapture";
 import FAQAccordion from "@/components/FAQAccordion";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function Home() {
   return (
-    <>
+    <SmoothScroll>
       <Navbar />
       <main className="flex-1 w-full overflow-x-hidden">
         <Hero />
@@ -27,6 +28,6 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
-    </>
+    </SmoothScroll>
   );
 }
