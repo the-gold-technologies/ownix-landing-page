@@ -31,81 +31,99 @@ export default function FAQAccordion() {
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // Default open first FAQ
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // Default open first item mimicking the reference state
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faqs" className="py-24 bg-white border-b border-slate-100 relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="faqs" className="py-20 sm:py-32 bg-white relative overflow-hidden border-b border-slate-100">
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Title Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-xs font-bold uppercase tracking-widest text-emerald-800 mb-3 font-mono shadow-2xs">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Support Center</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-slate-600 text-sm mt-2">
-            Clear, transparent answers directly from our asset structured models.
-          </p>
-        </div>
+        {/* Asymmetric Reference Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          
+          {/* Left Column: Reference-Grade Pill Tag & Split Typography */}
+          <div className="lg:col-span-5 lg:sticky lg:top-32 pt-2">
+            
+            {/* Soft accent pill tag mimicking reference layout verbatim */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-xs font-medium text-emerald-700 mb-5 border border-emerald-100/50">
+              <HelpCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <span>Frequently asked questions</span>
+            </div>
 
-        {/* Accordion Panel List */}
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div
-                key={idx}
-                id={`faq-container-${idx}`}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen
-                    ? "bg-white border-emerald-600 shadow-md"
-                    : "bg-slate-50 border-slate-200 hover:border-slate-300 shadow-2xs"
-                }`}
-              >
-                <button
-                  id={`faq-trigger-${idx}`}
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus:outline-none group"
-                  aria-expanded={isOpen}
-                >
-                  <span className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors duration-200">
-                    {faq.q}
-                  </span>
+            {/* Verbatim Section Heading formatted for optimal two-color visual break */}
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08]">
+              Frequently asked <br />
+              <span className="text-emerald-600 font-medium">questions</span>
+            </h2>
+
+          </div>
+
+
+          {/* Right Column: Stacked Rounded Box Panels matching the mock */}
+          <div className="lg:col-span-7">
+            <div className="space-y-4">
+              {faqs.map((faq, idx) => {
+                const isOpen = openIndex === idx;
+                return (
                   <div
-                    className={`p-1 rounded-lg transition-transform duration-300 shrink-0 ${
-                      isOpen ? "bg-emerald-600 text-white rotate-180" : "bg-white text-slate-500 border border-slate-200"
+                    key={idx}
+                    id={`faq-item-${idx}`}
+                    className={`rounded-[20px] transition-all duration-300 overflow-hidden ${
+                      isOpen
+                        ? "bg-[#f8f9fa] shadow-2xs"
+                        : "bg-[#f8f9fa] hover:bg-[#f1f3f5]"
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <button
+                      id={`faq-trigger-${idx}`}
+                      onClick={() => toggleFaq(idx)}
+                      className="w-full text-left py-5 pl-6 pr-5 flex items-center justify-between gap-4 focus:outline-none group"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors duration-200">
+                        {faq.q}
+                      </span>
+                      
+                      {/* Integrated circular Chevron Module mimicking the reference mock exactly */}
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                          isOpen
+                            ? "bg-emerald-600 text-white shadow-2xs"
+                            : "bg-emerald-100/80 text-emerald-700 group-hover:bg-emerald-200/80"
+                        }`}
+                      >
+                        <ChevronDown
+                          className={`w-4 h-4 stroke-[2.5] transition-transform duration-300 ${
+                            isOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                        />
+                      </div>
+                    </button>
+                    {/* Silky-Smooth Grid-Template-Rows Expandable Answer Reveal */}
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div
+                          id={`faq-answer-${idx}`}
+                          className="pb-6 pl-6 pr-10 text-sm sm:text-base text-slate-500 leading-relaxed font-normal"
+                        >
+                          <p>{faq.a}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </button>
+                );
+              })}
+            </div>
+          </div>
 
-                {isOpen && (
-                  <div
-                    id={`faq-answer-${idx}`}
-                    className="px-6 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 animate-in fade-in duration-200"
-                  >
-                    <p>{faq.a}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Support Note */}
-        <div className="mt-12 text-center bg-slate-50 p-4 rounded-xl border border-slate-200 max-w-md mx-auto text-xs text-slate-600 shadow-2xs">
-          Have an unlisted query? Email advisory desks at{" "}
-          <a href="mailto:info@thegoldtechnologies.com" className="text-emerald-700 font-bold hover:underline">
-            info@thegoldtechnologies.com
-          </a>
         </div>
 
       </div>

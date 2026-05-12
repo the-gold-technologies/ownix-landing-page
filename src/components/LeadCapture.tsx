@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, CheckCircle2, ShieldCheck, User, Phone, Mail, DollarSign } from "lucide-react";
+import { Mail, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function LeadCapture() {
   const [formData, setFormData] = useState({
@@ -14,7 +14,9 @@ export default function LeadCapture() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -24,12 +26,12 @@ export default function LeadCapture() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate robust async API request state
+
+    // Simulate clean premium asynchronous response state
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 1200);
+    }, 1000);
   };
 
   const budgets = [
@@ -40,86 +42,115 @@ export default function LeadCapture() {
   ];
 
   return (
-    <section id="lead-capture" className="py-24 bg-stone-50 relative overflow-hidden">
-      
-      {/* Background graphic elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full opacity-30 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-teal-600/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div className="rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
-          
-          {/* Left Decorative Info Side */}
-          <div className="md:col-span-5 bg-slate-50 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-100 relative">
-            
-            <div className="relative z-10">
-              <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-widest text-emerald-800 mb-6 font-mono shadow-2xs">
-                Priority Waitlist
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-4">
-                Be Among the First Investors
-              </h3>
-
-              <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
-                <p>
-                  We are currently onboarding early investors interested in premium Ownix real estate opportunities.
-                </p>
-                <p>
-                  Share your details and our team will connect with you with upcoming property listings and investment opportunities.
-                </p>
-              </div>
+    <section
+      id="lead-capture"
+      className="py-20 sm:py-28 bg-slate-50/80 relative overflow-hidden border-t border-slate-100"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Seamless Grid inspired by the reference reference */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          {/* Left Column: Premium Minimalist Typography & Contact Elements */}
+          <div className="lg:col-span-6">
+            {/* Top helper text */}
+            <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 font-mono">
+              INVESTMENT ASSISTANCE
             </div>
 
-            <div className="pt-8 border-t border-slate-200 mt-6 relative z-10">
-              <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Confidentiality Guaranteed</span>
-              </div>
+            {/* Verbatim Section Headline */}
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.15] mb-6">
+              Be Among the First Investors
+            </h3>
+
+            {/* Verbatim Section Content */}
+            <div className="space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-lg mb-10 font-normal">
+              <p>
+                We are currently onboarding early investors interested in
+                premium Ownix real estate opportunities.
+              </p>
+              <p>
+                Share your details and our team will connect with you with
+                upcoming property listings and investment opportunities.
+              </p>
             </div>
 
+            {/* Support items mapping verbatim to the left-hand column design layout */}
+            <div className="space-y-6 pt-2">
+              {/* E-mail Support Block */}
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-medium text-slate-400">
+                    E-mail
+                  </div>
+                  <div className="text-sm font-semibold text-slate-900 font-mono">
+                    support@ownix.com
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone Support Block */}
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-medium text-slate-400">
+                    Phone number
+                  </div>
+                  <div className="text-sm font-semibold text-slate-900 font-mono">
+                    +91 80000 00000
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
+          {/* Right Column: Reference-Grade Floating Form Canvas */}
+          <div className="lg:col-span-6">
+            <div className="bg-white rounded-[24px] p-8 sm:p-12 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border border-slate-100 w-full">
+              {submitted ? (
+                <div className="py-8 text-center animate-in fade-in duration-300">
+                  <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mx-auto mb-4">
+                    <CheckCircle2 className="w-7 h-7 font-bold stroke-[2.5]" />
+                  </div>
 
-          {/* Right Live Input Form Side */}
-          <div className="md:col-span-7 p-8 bg-white">
-            {submitted ? (
-              <div className="h-full flex flex-col items-center justify-center text-center py-12 animate-in fade-in zoom-in-95 duration-300">
-                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4 shadow-2xs">
-                  <CheckCircle2 className="w-8 h-8 font-bold" />
+                  <h4 className="text-xl font-bold text-slate-900 tracking-tight mb-2">
+                    Request Received
+                  </h4>
+
+                  <p className="text-xs text-slate-500 max-w-xs mx-auto mb-6 leading-relaxed">
+                    Thank you. Our lead asset managers will review your
+                    preferences and get in touch shortly.
+                  </p>
+
+                  <button
+                    id="form-reset-btn"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        fullName: "",
+                        phoneNumber: "",
+                        emailAddress: "",
+                        investmentBudget: "",
+                      });
+                    }}
+                    className="text-xs font-bold text-emerald-600 hover:text-emerald-700 tracking-wider uppercase underline"
+                  >
+                    Submit Another
+                  </button>
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">
-                  Access Requested Successfully!
-                </h4>
-                <p className="text-sm text-slate-600 max-w-sm mb-6 leading-relaxed">
-                  Thank you for registering. Our lead asset managers will review your preferences and get in touch within 24 hours.
-                </p>
-                <button
-                  id="form-reset-btn"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormData({ fullName: "", phoneNumber: "", emailAddress: "", investmentBudget: "" });
-                  }}
-                  className="text-xs text-emerald-700 hover:text-emerald-800 font-bold tracking-wider uppercase underline"
-                >
-                  Submit Another Request
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                
-                {/* Full Name */}
-                <div>
-                  <label htmlFor="lead-fullname" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Full Name <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                      <User className="w-4 h-4" />
-                    </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Full Name */}
+                  <div>
+                    <label
+                      htmlFor="lead-fullname"
+                      className="text-[13px] text-slate-500 font-medium mb-1.5 block"
+                    >
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       id="lead-fullname"
@@ -127,21 +158,19 @@ export default function LeadCapture() {
                       required
                       value={formData.fullName}
                       onChange={handleChange}
-                      placeholder="Enter your full name"
-                      className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all shadow-2xs"
+                      placeholder="Jane Smith"
+                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                     />
                   </div>
-                </div>
 
-                {/* Phone Number */}
-                <div>
-                  <label htmlFor="lead-phone" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Phone Number <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                      <Phone className="w-4 h-4" />
-                    </div>
+                  {/* Phone Number */}
+                  <div>
+                    <label
+                      htmlFor="lead-phone"
+                      className="text-[13px] text-slate-500 font-medium mb-1.5 block"
+                    >
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       id="lead-phone"
@@ -150,20 +179,18 @@ export default function LeadCapture() {
                       value={formData.phoneNumber}
                       onChange={handleChange}
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all font-mono shadow-2xs"
+                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400 font-mono"
                     />
                   </div>
-                </div>
 
-                {/* Email Address */}
-                <div>
-                  <label htmlFor="lead-email" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Email Address <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                      <Mail className="w-4 h-4" />
-                    </div>
+                  {/* Email Address */}
+                  <div>
+                    <label
+                      htmlFor="lead-email"
+                      className="text-[13px] text-slate-500 font-medium mb-1.5 block"
+                    >
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       id="lead-email"
@@ -171,71 +198,80 @@ export default function LeadCapture() {
                       required
                       value={formData.emailAddress}
                       onChange={handleChange}
-                      placeholder="you@domain.com"
-                      className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all shadow-2xs"
+                      placeholder="jane@domain.com"
+                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                     />
                   </div>
-                </div>
 
-                {/* Investment Budget */}
-                <div>
-                  <label htmlFor="lead-budget" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Investment Budget <span className="text-emerald-600">*</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                      <DollarSign className="w-4 h-4" />
-                    </div>
-                    <select
-                      id="lead-budget"
-                      name="investmentBudget"
-                      required
-                      value={formData.investmentBudget}
-                      onChange={handleChange}
-                      className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all appearance-none cursor-pointer font-mono shadow-2xs"
+                  {/* Investment Budget */}
+                  <div>
+                    <label
+                      htmlFor="lead-budget"
+                      className="text-[13px] text-slate-500 font-medium mb-1.5 block"
                     >
-                      <option value="" disabled className="text-slate-400">Select proposed budget tier</option>
-                      {budgets.map((budget, i) => (
-                        <option key={i} value={budget}>
-                          {budget}
+                      Investment Budget
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="lead-budget"
+                        name="investmentBudget"
+                        required
+                        value={formData.investmentBudget}
+                        onChange={handleChange}
+                        className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all appearance-none cursor-pointer"
+                      >
+                        <option value="" disabled className="text-slate-400">
+                          Select...
                         </option>
-                      ))}
-                    </select>
-                    {/* Select chevron */}
-                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
-                      <span className="text-xs">▼</span>
+                        {budgets.map((budget, i) => (
+                          <option
+                            key={i}
+                            value={budget}
+                            className="text-slate-900"
+                          >
+                            {budget}
+                          </option>
+                        ))}
+                      </select>
+                      {/* Integrated minimal chevron indicator */}
+                      <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400 font-bold">
+                        <span className="text-[10px]">▼</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Submit Action CTA Button */}
-                <div className="pt-3">
-                  <button
-                    type="submit"
-                    id="lead-submit-cta-btn"
-                    disabled={isSubmitting}
-                    className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-md transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-emerald-600 disabled:opacity-70 disabled:cursor-wait flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
-                        <span>Logging Entry...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Get Early Access</span>
-                        <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
-                </div>
-
-              </form>
-            )}
+                  {/* Submit CTA Button replicating verbatim the round-left pill layout */}
+                  <div className="pt-3">
+                    <button
+                      type="submit"
+                      id="lead-submit-cta-btn"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center gap-3 pl-1.5 pr-6 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none disabled:opacity-70 disabled:cursor-wait group"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <span className="w-8 h-8 rounded-full bg-white text-emerald-600 flex items-center justify-center shrink-0">
+                            <span className="w-3.5 h-3.5 rounded-full border-2 border-emerald-600 border-t-transparent animate-spin" />
+                          </span>
+                          <span className="font-bold">Submitting...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="w-8 h-8 rounded-full bg-white text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs transition-transform group-hover:scale-105">
+                            <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                          </span>
+                          <span className="font-bold tracking-wide">
+                            Get Early Access
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

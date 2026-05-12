@@ -28,8 +28,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm py-3"
-          : "bg-white/80 backdrop-blur-xs py-5"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xs py-3"
+          : "bg-stone-50/40 backdrop-blur-xs py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -39,7 +39,7 @@ export default function Navbar() {
           id="nav-logo-link"
           className="flex items-center gap-3 group focus:outline-none"
         >
-          <div className="relative flex items-center justify-center w-11 h-11 rounded-full bg-slate-50 border border-emerald-600/30 shadow-xs group-hover:scale-105 transition-transform duration-300">
+          <div className="relative flex items-center justify-center w-11 h-11 rounded-full bg-white border border-emerald-600/30 shadow-xs group-hover:scale-105 transition-transform duration-300">
             <span className="text-xs font-black tracking-tight text-emerald-700 font-mono">
               TGT
             </span>
@@ -61,7 +61,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               id={`nav-link-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-sm font-semibold text-slate-600 hover:text-emerald-700 transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-600 hover:after:w-full after:transition-all after:duration-300"
+              className="text-sm font-bold text-slate-700 hover:text-emerald-600 transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-600 hover:after:w-full after:transition-all after:duration-300"
             >
               {link.name}
             </a>
@@ -101,7 +101,7 @@ export default function Navbar() {
                 href={link.href}
                 id={`mobile-nav-link-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-semibold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 px-3 py-2 rounded-lg transition-colors"
+                className="text-base font-bold text-slate-800 hover:text-emerald-600 hover:bg-slate-50 px-3 py-2 rounded-lg transition-colors"
               >
                 {link.name}
               </a>
