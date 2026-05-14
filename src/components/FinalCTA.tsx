@@ -46,7 +46,7 @@ export default function FinalCTA() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 gsap-cta-content">
         
-        <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-widest text-emerald-800 mb-6 font-mono shadow-2xs">
+        <div className="inline-block px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-widest text-emerald-800 mb-6 shadow-2xs">
           Take the next step
         </div>
 
@@ -65,7 +65,7 @@ export default function FinalCTA() {
           <a
             href="#lead-capture"
             id="final-cta-waitlist-btn"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-emerald-600 rounded-xl shadow-md hover:bg-emerald-700 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-emerald-600 rounded-2xl shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
           >
             <span>Join the Waitlist</span>
             <ArrowUpRight className="w-5 h-5 ml-2" />
@@ -74,7 +74,7 @@ export default function FinalCTA() {
           <a
             href="tel:+919958512711"
             id="final-cta-advisor-btn"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-800 bg-white border border-slate-200 hover:border-emerald-600/40 rounded-xl hover:bg-slate-50 transition-all duration-300 shadow-xs"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 text-base font-bold text-slate-800 bg-white border border-slate-200 hover:border-emerald-600/40 rounded-2xl hover:bg-slate-50 transition-all duration-300 shadow-sm"
           >
             <PhoneCall className="w-4 h-4 mr-2 text-emerald-600" />
             <span>Speak to an Advisor</span>

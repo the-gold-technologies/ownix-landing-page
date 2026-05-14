@@ -60,7 +60,7 @@ export default function AboutPlatform() {
     <section
       id="about"
       ref={containerRef}
-      className="py-24 sm:py-28 bg-white relative overflow-hidden border-b border-slate-100 opacity-99"
+      className="py-24 sm:py-28 bg-gradient-to-b from-stone-50 via-emerald-100/40 to-stone-100 relative overflow-hidden border-b border-slate-100 opacity-99"
     >
       {/* Decorative ambient background ring */}
       <div className="absolute -top-40 right-1/4 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none" />
@@ -71,7 +71,7 @@ export default function AboutPlatform() {
           <div className="lg:col-span-6 order-2 lg:order-1 relative gsap-about-media flex justify-center">
             <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white group">
               <img
-                src="/images/sustainable_luxury_tower.png"
+                src="/images/properties/17_08_2026_02_17_04_oberoi-three-sixty-north.jpg"
                 alt="Primary architectural expertise view"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
@@ -79,7 +79,7 @@ export default function AboutPlatform() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
 
               {/* Top Corner Authenticity Seal */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-bold font-mono uppercase tracking-widest border border-slate-700">
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest border border-slate-700">
                 Verified Builder
               </div>
 
@@ -89,7 +89,7 @@ export default function AboutPlatform() {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div className="pr-2">
-                  <div className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest font-mono">
+                  <div className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">
                     Core Focus
                   </div>
                   <div className="text-xs font-bold text-slate-100 leading-tight">
@@ -101,11 +101,11 @@ export default function AboutPlatform() {
               {/* Floating Metrics Banner at the base */}
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-100 shadow-lg flex items-center justify-between z-20">
                 <div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono">
-                    Market Coverage
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    Asset Quality
                   </div>
                   <div className="text-sm font-extrabold text-slate-900 tracking-tight">
-                    North India Early Mover
+                    Premium Real Estate
                   </div>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
@@ -117,7 +117,7 @@ export default function AboutPlatform() {
 
           {/* Right Text Content Panel */}
           <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-center text-left">
-            <div className="gsap-about-text inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 w-max mb-6 shadow-2xs font-mono">
+            <div className="gsap-about-text inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 w-max mb-6 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
                 Section 3 – About the Platform
@@ -134,10 +134,13 @@ export default function AboutPlatform() {
             {/* Extremely concise, high-impact institutional statements inspired by Stake */}
             <div className="space-y-4 text-slate-600 leading-relaxed font-normal">
               <p className="gsap-about-text text-base sm:text-lg font-medium text-slate-800">
-                Backed by construction and market expertise, we help investors scale their wealth securely through high-yield property assets.
+                Backed by construction and market expertise, we help investors
+                scale their wealth securely through high-yield property assets.
               </p>
               <p className="gsap-about-text text-sm sm:text-base text-slate-500">
-                As a pioneer in North India’s digital real estate sector, Ownix strips away operational complexity to deliver sustainable rental income and long-term capital appreciation.
+                As a pioneer in North India’s digital real estate sector, Ownix
+                strips away operational complexity to deliver sustainable rental
+                income and long-term capital appreciation.
               </p>
             </div>
 
@@ -147,7 +150,7 @@ export default function AboutPlatform() {
                 <div className="text-2xl font-black text-slate-900 tracking-tight">
                   Smarter
                 </div>
-                <div className="text-[11px] text-slate-500 font-semibold tracking-wider font-mono uppercase mt-1">
+                <div className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase mt-1">
                   Investment Decisions
                 </div>
               </div>
@@ -156,7 +159,7 @@ export default function AboutPlatform() {
                 <div className="text-2xl font-black text-emerald-600 tracking-tight">
                   Strong
                 </div>
-                <div className="text-[11px] text-slate-500 font-semibold tracking-wider font-mono uppercase mt-1">
+                <div className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase mt-1">
                   Appreciation Potential
                 </div>
               </div>
@@ -165,7 +168,7 @@ export default function AboutPlatform() {
                 <div className="text-2xl font-black text-slate-900 tracking-tight">
                   Accessible
                 </div>
-                <div className="text-[11px] text-slate-500 font-semibold tracking-wider font-mono uppercase mt-1">
+                <div className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase mt-1">
                   To Retail Audience
                 </div>
               </div>

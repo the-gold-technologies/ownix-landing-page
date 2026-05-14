@@ -5,12 +5,14 @@ import WhyChoose from "@/components/WhyChoose";
 import AboutPlatform from "@/components/AboutPlatform";
 import HowItWorks from "@/components/HowItWorks";
 import FeaturedProperties from "@/components/FeaturedProperties";
+import PropertyDetails from "@/components/PropertyDetails";
 import InvestorInfoSections from "@/components/InvestorInfoSections";
 import LeadCapture from "@/components/LeadCapture";
 import FAQAccordion from "@/components/FAQAccordion";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import PricingBlock from "@/components/PricingBlock";
 
 export default function Home() {
   return (
@@ -21,11 +23,12 @@ export default function Home() {
         <WhyChoose />
         <AboutPlatform />
         <HowItWorks />
-        <FeaturedProperties />
+        <PricingBlock />
+        <PropertyDetails />
         <InvestorInfoSections />
-        <LeadCapture />
-        <FAQAccordion />
         <FinalCTA />
+        <FAQAccordion />
+        <LeadCapture />
       </main>
       <Footer />
     </SmoothScroll>

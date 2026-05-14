@@ -1,14 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,229 +11,202 @@ export default function Hero() {
     () => {
       if (!containerRef.current) return;
 
-      // Timeline staggered load animation for hero text elements
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out", duration: 1 },
+        defaults: { ease: "power4.out", duration: 1.4 },
       });
 
-      tl.fromTo(".hero-headline", { opacity: 0, y: 40 }, { opacity: 1, y: 0 })
+      tl.fromTo(".gsap-hero-left", { opacity: 0, y: 40 }, { opacity: 1, y: 0 })
         .fromTo(
-          ".hero-desc",
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.6",
+          ".gsap-hero-right",
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 1.2 },
+          "-=0.9",
         )
         .fromTo(
-          ".hero-image-frame",
-          { opacity: 0, scale: 0.96 },
-          { opacity: 1, scale: 1, duration: 1.2 },
-          "-=0.6",
-        )
-        .fromTo(
-          ".hero-filter-bar",
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.2)" },
-          "-=0.8",
+          ".gsap-hero-frame",
+          { opacity: 0, scale: 0.94, y: 50 },
+          { opacity: 1, scale: 1, y: 0, duration: 1.6 },
+          "-=0.9",
         );
     },
     { scope: containerRef },
   );
 
   return (
-    <section
-      id="hero"
-      ref={containerRef}
-      className="relative pt-20 sm:pt-24 pb-8 sm:pb-12 bg-white overflow-hidden border-b border-slate-100 opacity-99"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Top Header Section perfectly mapped to standard laptop fold geometry */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6 pt-2">
-          {/* Left Side: Scaled Ultra-Impact Headline */}
-          <div className="w-full lg:w-[62%] max-w-4xl text-left hero-headline shrink-0 lg:pr-4">
-            <h1 className="text-3xl sm:text-5xl lg:text-[54px] xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] sm:leading-[1.08]">
-              Why Let Real Estate
-              <br />
-              Stay Out of Reach?
-            </h1>
-          </div>
-
-          {/* Right Side: Tightly Paced Offset Stack */}
-          <div className="max-w-md text-left lg:pb-1 w-full hero-desc">
-            <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed mb-3 sm:mb-4">
-              Own high-potential properties with Ownix real estate investing.
-              Start with smaller investments, earn rental income, and benefit
-              from long-term capital appreciation.
-            </p>
-
-            {/* Compact action capsule */}
-            <a
-              href="#properties"
-              className="inline-flex items-center gap-2 px-5 py-2 sm:py-2.5 rounded-full border border-slate-300 text-xs sm:text-sm font-bold text-slate-800 hover:border-emerald-600 hover:text-emerald-600 hover:bg-emerald-50/50 transition-all duration-300 shadow-2xs group w-fit"
-            >
-              <span>Explore Listings</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
-            </a>
-          </div>
+    <>
+      <section
+        id="hero"
+        ref={containerRef}
+        className="relative pt-24 sm:pt-28 pb-10 sm:pb-16 bg-white overflow-hidden select-none"
+      >
+        {/* Absolute Dark Teal background block covering the upper portion to achieve the exact half-dark half-white layout overlap */}
+        <div className="absolute top-0 left-0 right-0 h-[calc(100%-140px)] sm:h-[calc(100%-200px)] bg-gradient-to-b from-[#041A1A] via-[#082828] to-[#041A1A] z-0 pointer-events-none">
+          {/* Subtle radial ambient studio highlights */}
+          <div className="absolute top-1/4 left-1/4 w-[45rem] h-[45rem] bg-[#35ddb1]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 w-[40rem] h-[40rem] bg-teal-500/5 rounded-full blur-3xl" />
         </div>
 
-        {/* Height-Constrained Panoramic Architectural Viewport Frame guaranteeing above-the-fold render */}
-        <div className="mt-6 sm:mt-8 relative w-full rounded-2xl sm:rounded-[32px] overflow-hidden shadow-xl sm:shadow-2xl border border-slate-100 group h-[200px] sm:h-[260px] lg:h-[420px] bg-slate-50 hero-image-frame">
-          <img
-            src="/images/residenzo_style_villa.png"
-            alt="Premium architectural feature canvas"
-            className="w-full h-full object-cover object-[center_40%] group-hover:scale-102 transition-transform duration-1000 ease-out"
-          />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Main Content Layout Grid precisely matching Digiboost layout architecture */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-2 mb-8 sm:mb-12 text-left">
+            {/* LEFT SIDE: Giant double-line Title with side-stacked prefix and Supporting copy */}
+            <div className="lg:col-span-7 space-y-3 sm:space-y-4 gsap-hero-left">
+              {/* Line 1 */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-extrabold tracking-tight text-white leading-none">
+                Why Let <span className="text-[#35ddb1]">Premium</span>
+              </h1>
 
-          {/* Atmospheric ambient lighting block */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60 pointer-events-none" />
-        </div>
-
-        {/* Overlapping Multi-Select Filter Module mapped tightly above the scroll line */}
-        <div className="max-w-6xl mx-auto px-2 sm:px-4 -mt-8 sm:-mt-12 lg:-mt-14 relative z-30 hero-filter-bar">
-          <div className="bg-white rounded-xl sm:rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] sm:shadow-[0_12px_50px_rgba(0,0,0,0.08)] border border-slate-200/80 p-3.5 sm:p-5 text-left">
-            {/* Input Grid Matrix */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 sm:gap-3 items-end">
-              {/* Field 1: Building Type */}
-              <div>
-                <label className="block text-[10px] sm:text-[11px] font-bold text-slate-800 mb-1">
-                  Building Type
-                </label>
-                <div className="relative">
-                  <select className="w-full bg-white border border-slate-200 rounded-lg sm:rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-slate-600 focus:outline-none focus:border-emerald-600 appearance-none cursor-pointer">
-                    <option>Apartment</option>
-                    <option>Commercial Suite</option>
-                    <option>Boutique Villa</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
-                    <svg
-                      className="w-3.5 h-3.5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                    </svg>
+              {/* Line 2 with side label exactly mapped to Digiboost alignment */}
+              <div className="flex items-center gap-3 sm:gap-5 pt-1">
+                {/* Stacked Real Estate block perfectly left-aligned without side borders */}
+                <div className="shrink-0 text-left pt-1">
+                  <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-none mb-1">
+                    Real
+                  </div>
+                  <div className="text-base sm:text-xl font-bold text-white tracking-tight leading-none">
+                    Estate
                   </div>
                 </div>
+
+                {/* Line 2 heading string */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[68px] font-extrabold tracking-tight text-white leading-none">
+                  Stay Out of Reach?
+                </h1>
               </div>
 
-              {/* Field 2: Category */}
-              <div>
-                <label className="block text-[10px] sm:text-[11px] font-bold text-slate-800 mb-1">
-                  Category
-                </label>
-                <div className="relative">
-                  <select className="w-full bg-white border border-slate-200 rounded-lg sm:rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-slate-600 focus:outline-none focus:border-emerald-600 appearance-none cursor-pointer">
-                    <option>Fractional Buy</option>
-                    <option>Yield Token</option>
-                    <option>Secondary Exit</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
-                    <svg
-                      className="w-3.5 h-3.5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                    </svg>
-                  </div>
+              {/* Supporting Text explicitly integrated below the core headline strings */}
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal max-w-xl pt-2">
+                Real estate investing is no longer limited to high-net-worth
+                individuals. Ownix makes it easier for retail investors to
+                access premium properties through Ownix ownership.
+              </p>
+            </div>
+
+            {/* RIGHT SIDE: Subheadline description & Core CTA triggers separated by a crisp vertical marker line */}
+            <div className="lg:col-span-5 relative pl-0 lg:pl-8 pt-6 lg:pt-1 gsap-hero-right">
+              {/* Distinct vertical separator line matching reference screenshot exactly */}
+              <div className="hidden lg:block absolute left-0 top-2 w-px h-24 bg-slate-700/80" />
+
+              <div className="space-y-6">
+                {/* Core Subheadline paragraph mapped verbatim to the reference right column style */}
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal max-w-md text-left">
+                  Own high-potential properties with Ownix real estate
+                  investing. Start with smaller investments, earn rental income,
+                  and benefit from long-term capital appreciation.
+                </p>
+
+                {/* Relocated CTA Action Triggers with optimized, geometrically symmetric strings */}
+                <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 pt-1">
+                  <a
+                    href="#properties"
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-emerald-600 text-white text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 hover:scale-[1.02] active:scale-[0.98] text-center tracking-tight shrink-0"
+                  >
+                    Explore Properties
+                  </a>
+                  <a
+                    href="#lead-capture"
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl border border-white/40 text-white text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] text-center tracking-tight shrink-0"
+                  >
+                    Join the Waitlist
+                  </a>
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Field 3: Location */}
-              <div>
-                <label className="block text-[10px] sm:text-[11px] font-bold text-slate-800 mb-1">
-                  Location
-                </label>
-                <div className="relative">
-                  <select className="w-full bg-white border border-slate-200 rounded-lg sm:rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-slate-600 focus:outline-none focus:border-emerald-600 appearance-none cursor-pointer">
-                    <option>Delhi NCR, India</option>
-                    <option>Goa Coastal Belt</option>
-                    <option>Mumbai Region</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
-                    <svg
-                      className="w-3.5 h-3.5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                    </svg>
-                  </div>
+          {/* Panoramic Showcase Container with Absolute Hover/Stat Overlays */}
+          <div className="gsap-hero-frame relative w-full h-[280px] sm:h-[400px] lg:h-[460px] rounded-3xl overflow-hidden shadow-2xl border border-slate-100 group bg-slate-950">
+            <img
+              src="/images/residenzo_style_villa.png"
+              alt="Institutional Real Estate Asset Showcase"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out opacity-95"
+            />
+            <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/10 transition-colors duration-500" />
+
+            {/* Overlaid Floating Glassmorphic Stat Block 1: Target IRR Yield Badge */}
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 bg-slate-950/85 backdrop-blur-md border border-white/10 rounded-2xl px-3.5 sm:px-4 py-2 sm:py-3 shadow-2xl flex items-center gap-2.5 sm:gap-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500">
+              {/* Animated Live Dot */}
+              <div className="relative flex items-center justify-center w-2.5 h-2.5 sm:w-3 sm:h-3 shrink-0">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[#35ddb1] opacity-75 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-[#35ddb1]" />
+              </div>
+              <div className="text-left">
+                <div className="text-xs sm:text-sm font-bold text-white tracking-tight flex items-baseline gap-1">
+                  15%+{" "}
+                  <span className="text-[9px] sm:text-[10px] text-slate-400 font-normal">
+                    IRR Target
+                  </span>
+                </div>
+                <div className="text-[9px] sm:text-[10px] text-slate-400 font-medium leading-none mt-0.5">
+                  Verified Premium Asset
                 </div>
               </div>
+            </div>
 
-              {/* Field 4: Style */}
-              <div>
-                <label className="block text-[10px] sm:text-[11px] font-bold text-slate-800 mb-1">
-                  Style
-                </label>
-                <div className="relative">
-                  <select className="w-full bg-white border border-slate-200 rounded-lg sm:rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-slate-600 focus:outline-none focus:border-emerald-600 appearance-none cursor-pointer">
-                    <option>Modern Architecture</option>
-                    <option>Premium High-Rise</option>
-                    <option>Boutique Estate</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
-                    <svg
-                      className="w-3.5 h-3.5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                    </svg>
-                  </div>
-                </div>
+            {/* Overlaid Floating Glassmorphic Stat Block 2: Capital Deployment Counter */}
+            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 bg-white/95 backdrop-blur-md border border-white/20 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-2xl flex items-center gap-2 group-hover:-translate-x-1 group-hover:translate-y-1 transition-transform duration-500">
+              <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-emerald-50 text-emerald-700 font-bold shrink-0">
+                ✦
               </div>
-
-              {/* Action Trigger Block integrated into compact horizontal line */}
-              <div className="pt-1 sm:pt-0">
-                <a
-                  href="#properties"
-                  className="w-full h-8 sm:h-[36px] inline-flex items-center justify-center gap-1.5 px-4 rounded-lg sm:rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold transition-colors duration-300 shadow-md group shrink-0"
-                >
-                  <span>Search Now</span>
-                  <ArrowRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
-                </a>
+              <div className="text-left">
+                <div className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight leading-none">
+                  83K+ Units
+                </div>
+                <div className="text-[8px] sm:text-[9px] text-slate-500 font-medium mt-1 leading-none">
+                  Fully Subscribed
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+      {/* Scrolling Premium Marquee Slide Strip acting as a dynamic visual anchor for the lower section layout */}
+      <div className="border-t border-b border-slate-100 bg-slate-50/80 py-3 sm:py-4 overflow-hidden relative w-full flex select-none">
+        {/* Subtle left/right fading overlays for seamless edge transition */}
+        <div className="absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-      {/* Exquisite Infinite Ticker Marquee Strip below Hero */}
-      <div className="mt-12 sm:mt-16 border-y border-emerald-900/40 bg-emerald-950 py-3 sm:py-3.5 overflow-hidden relative w-full flex select-none">
-        {/* Soft left/right gradients for premium blending depth */}
-        <div className="absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-emerald-950 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-emerald-950 to-transparent z-10 pointer-events-none" />
-
-        {/* Scrolling flex wrapper */}
+        {/* Primary marquee flex wrapper */}
         <div className="flex shrink-0 animate-marquee items-center gap-8 min-w-full justify-around">
           {[
+            "✦ Fractional Ownership",
+            "✦ Premium Verified Titles",
+            "✦ Passive Rental Yields",
+            "✦ Zero Operational Overhead",
             "✦ Institutional Grade Security",
-            "✦ Zero Operations Overhead",
-            "✦ Regulated Fractional Units",
-            "✦ High-Yield Premium Assets",
-            "✦ Verified Builder Network",
-            "✦ Seamless Digital Ownership",
+            "✦ Streamlined Exits",
           ].map((item, idx) => (
-            <span key={idx} className="text-xs sm:text-sm font-mono font-bold tracking-widest text-emerald-400/90 uppercase whitespace-nowrap">
+            <span
+              key={idx}
+              className="text-xs sm:text-sm font-bold tracking-widest text-emerald-800 uppercase whitespace-nowrap"
+            >
               {item}
             </span>
           ))}
         </div>
 
-        {/* Duplicate track block ensuring visual seamlessness */}
-        <div className="flex shrink-0 animate-marquee items-center gap-8 min-w-full justify-around" aria-hidden="true">
+        {/* Duplicate track ensuring infinite animation loop */}
+        <div
+          className="flex shrink-0 animate-marquee items-center gap-8 min-w-full justify-around"
+          aria-hidden="true"
+        >
           {[
+            "✦ Fractional Ownership",
+            "✦ Premium Verified Titles",
+            "✦ Passive Rental Yields",
+            "✦ Zero Operational Overhead",
             "✦ Institutional Grade Security",
-            "✦ Zero Operations Overhead",
-            "✦ Regulated Fractional Units",
-            "✦ High-Yield Premium Assets",
-            "✦ Verified Builder Network",
-            "✦ Seamless Digital Ownership",
+            "✦ Streamlined Exits",
           ].map((item, idx) => (
-            <span key={`dup-${idx}`} className="text-xs sm:text-sm font-mono font-bold tracking-widest text-emerald-400/90 uppercase whitespace-nowrap">
+            <span
+              key={`dup-${idx}`}
+              className="text-xs sm:text-sm font-bold tracking-widest text-emerald-800 uppercase whitespace-nowrap"
+            >
               {item}
             </span>
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 }

@@ -39,7 +39,7 @@ export default function Footer() {
     <footer
       id="footer"
       ref={containerRef}
-      className="bg-white border-t border-slate-100 relative overflow-hidden text-slate-600 opacity-99"
+      className="bg-gradient-to-b from-[#184848] via-[#267575] to-[#184848] border-t border-[#2A8282] relative overflow-hidden text-slate-100 opacity-99"
     >
       {/* Primary Multi-Column Canvas Inspired directly by the uploaded mockup */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -49,16 +49,16 @@ export default function Footer() {
             <div>
               {/* Brand Header side-by-side */}
               <div className="flex items-center gap-2.5 mb-5">
-                <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold font-mono text-sm shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-[#35ddb1] text-[#184848] flex items-center justify-center font-bold font-mono text-sm shadow-2xs">
                   O
                 </div>
-                <span className="text-xl font-bold text-slate-900 tracking-tight font-mono">
+                <span className="text-xl font-bold text-white tracking-tight font-mono">
                   Ownix
                 </span>
               </div>
 
               {/* Parallel paragraph mapping reference layout pacing exactly */}
-              <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-8">
+              <p className="text-sm text-slate-100 leading-relaxed max-w-xs mb-8">
                 Transforming premium real estate accessibility with verified
                 fractional solutions. We help investors scale their portfolios
                 securely and sustainably.
@@ -66,11 +66,11 @@ export default function Footer() {
             </div>
 
             {/* Flat Social Icons row mimicking reference screen output perfectly */}
-            <div className="flex items-center gap-4 text-slate-700 pt-2">
+            <div className="flex items-center gap-4 text-white pt-2">
               {/* Facebook */}
               <a
                 href="#facebook"
-                className="hover:text-emerald-600 transition-colors"
+                className="hover:text-[#35ddb1] transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export default function Footer() {
               {/* Twitter */}
               <a
                 href="#twitter"
-                className="hover:text-emerald-600 transition-colors"
+                className="hover:text-[#35ddb1] transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export default function Footer() {
               {/* LinkedIn */}
               <a
                 href="#linkedin"
-                className="hover:text-emerald-600 transition-colors"
+                className="hover:text-[#35ddb1] transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -100,19 +100,19 @@ export default function Footer() {
               {/* Instagram */}
               <a
                 href="#instagram"
-                className="hover:text-emerald-600 transition-colors"
+                className="hover:text-[#35ddb1] transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
+              </svg>
               </a>
             </div>
           </div>
 
           {/* Column 2: Quick Links */}
           <div className="lg:col-span-2 gsap-footer-col">
-            <h4 className="font-bold text-slate-900 text-sm mb-5">
+            <h4 className="font-bold text-white text-sm mb-5">
               Quick Links
             </h4>
 
@@ -120,7 +120,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#about"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   About Us
                 </a>
@@ -128,7 +128,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#properties"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Our Services
                 </a>
@@ -136,7 +136,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#pricing"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Pricing Framework
                 </a>
@@ -144,7 +144,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#how-it-works"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Deployment Flow
                 </a>
@@ -152,7 +152,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#lead-capture"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Investor Access
                 </a>
@@ -162,7 +162,7 @@ export default function Footer() {
 
           {/* Column 3: Legal & Privacy Framework */}
           <div className="lg:col-span-3 gsap-footer-col">
-            <h4 className="font-bold text-slate-900 text-sm mb-5">
+            <h4 className="font-bold text-white text-sm mb-5">
               Legal & Privacy
             </h4>
 
@@ -170,7 +170,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#privacy"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Privacy Policy
                 </a>
@@ -178,7 +178,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#terms"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Terms of Service
                 </a>
@@ -186,7 +186,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#disclosures"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Risk Disclosures
                 </a>
@@ -194,7 +194,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#guidelines"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Regulatory Guidelines
                 </a>
@@ -202,7 +202,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#protocols"
-                  className="text-slate-500 hover:text-emerald-600 transition-colors block"
+                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
                 >
                   Refund Protocols
                 </a>
@@ -212,14 +212,14 @@ export default function Footer() {
 
           {/* Column 4: Contact Us replicating precise icon-row spacing */}
           <div className="lg:col-span-3 gsap-footer-col">
-            <h4 className="font-bold text-slate-900 text-sm mb-5">
+            <h4 className="font-bold text-white text-sm mb-5">
               Contact Us
             </h4>
 
-            <div className="space-y-4 text-sm text-slate-500">
+            <div className="space-y-4 text-sm text-slate-100">
               {/* Address */}
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-emerald-600 mt-1 shrink-0 stroke-[2]" />
+                <MapPin className="w-4 h-4 text-[#35ddb1] mt-1 shrink-0 stroke-[2]" />
                 <span className="leading-relaxed block">
                   Sector 63, Noida
                   <br />
@@ -229,10 +229,10 @@ export default function Footer() {
 
               {/* Email */}
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-emerald-600 shrink-0 stroke-[2]" />
+                <Mail className="w-4 h-4 text-[#35ddb1] shrink-0 stroke-[2]" />
                 <a
                   href="mailto:info@thegoldtechnologies.com"
-                  className="hover:text-emerald-600 transition-colors truncate block"
+                  className="hover:text-[#35ddb1] transition-colors truncate block"
                 >
                   info@thegoldtechnologies.com
                 </a>
@@ -240,10 +240,10 @@ export default function Footer() {
 
               {/* Phone */}
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-emerald-600 shrink-0 stroke-[2]" />
+                <Phone className="w-4 h-4 text-[#35ddb1] shrink-0 stroke-[2]" />
                 <a
                   href="tel:+919958512711"
-                  className="hover:text-emerald-600 transition-colors block font-mono"
+                  className="hover:text-[#35ddb1] transition-colors block font-mono"
                 >
                   +91-9958512711
                 </a>
@@ -253,7 +253,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Horizontal Border Bar mapping identically to the screenshot baseline */}
-        <div className="mt-16 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="mt-16 pt-8 border-t border-[#2A8282] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-100">
           <div>
             <span>
               © {currentYear} The Gold Technologies. All rights reserved.
@@ -264,25 +264,25 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <a
               href="#terms"
-              className="hover:text-emerald-600 transition-colors"
+              className="hover:text-[#35ddb1] transition-colors"
             >
               Terms of Service
             </a>
             <a
               href="#privacy"
-              className="hover:text-emerald-600 transition-colors"
+              className="hover:text-[#35ddb1] transition-colors"
             >
               Privacy Policy
             </a>
             <a
               href="#cookies"
-              className="hover:text-emerald-600 transition-colors"
+              className="hover:text-[#35ddb1] transition-colors"
             >
               Cookie Policy
             </a>
             <a
               href="#sitemap"
-              className="hover:text-emerald-600 transition-colors"
+              className="hover:text-[#35ddb1] transition-colors"
             >
               Sitemap
             </a>

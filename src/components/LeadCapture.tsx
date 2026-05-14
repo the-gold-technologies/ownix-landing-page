@@ -100,7 +100,7 @@ export default function LeadCapture() {
           {/* Left Column: Premium Minimalist Typography & Contact Elements */}
           <div className="lg:col-span-6 gsap-lead-left">
             {/* Top helper text */}
-            <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 font-mono">
+            <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">
               INVESTMENT ASSISTANCE
             </div>
 
@@ -132,7 +132,7 @@ export default function LeadCapture() {
                   <div className="text-xs font-medium text-slate-400">
                     E-mail
                   </div>
-                  <div className="text-sm font-semibold text-slate-900 font-mono">
+                  <div className="text-sm font-semibold text-slate-900">
                     support@ownix.com
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function LeadCapture() {
                   <div className="text-xs font-medium text-slate-400">
                     Phone number
                   </div>
-                  <div className="text-sm font-semibold text-slate-900 font-mono">
+                  <div className="text-sm font-semibold text-slate-900">
                     +91 80000 00000
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function LeadCapture() {
                       value={formData.phoneNumber}
                       onChange={handleChange}
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400 font-mono"
+                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                     />
                   </div>
 
@@ -294,7 +294,7 @@ export default function LeadCapture() {
                       type="submit"
                       id="lead-submit-cta-btn"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-3 pl-1.5 pr-6 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none disabled:opacity-70 disabled:cursor-wait group"
+                      className="inline-flex items-center gap-3 pl-1.5 pr-6 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none disabled:opacity-70 disabled:cursor-wait group"
                     >
                       {isSubmitting ? (
                         <>
