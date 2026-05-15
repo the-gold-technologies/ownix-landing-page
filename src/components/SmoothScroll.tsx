@@ -22,6 +22,14 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     lenis.on("scroll", ScrollTrigger.update);
 
+    // Allow other components to stop/start scroll
+    const stopLenis = () => lenis.stop();
+    const startLenis = () => lenis.start();
+
+    window.addEventListener("lenis-stop", stopLenis);
+    window.addEventListener("lenis-start", startLenis);
+    (window as any).lenis = lenis;
+
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
@@ -29,6 +37,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     gsap.ticker.lagSmoothing(0, 0);
 
     return () => {
+      window.removeEventListener("lenis-stop", stopLenis);
+      window.removeEventListener("lenis-start", startLenis);
       gsap.ticker.remove((time) => {
         lenis.raf(time * 1000);
       });

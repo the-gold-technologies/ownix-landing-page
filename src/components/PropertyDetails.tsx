@@ -5,6 +5,7 @@ import { Sparkles, ArrowRight, Home } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import PropertyModal from "./PropertyModal";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -21,6 +22,7 @@ interface PropertyStep {
   availableUnits: string;
   desc: string;
   images: string[];
+  video?: string;
 }
 
 function PropertyImageCarousel({
@@ -93,6 +95,7 @@ export default function PropertyDetails() {
         "/images/properties/wa_4.jpeg",
         "/images/properties/wa_3.jpeg",
       ],
+      video: "/images/properties/WhatsApp Video 2026-05-15 at 17.22.17.mp4",
     },
     {
       title: "Elan Emperor",
@@ -112,6 +115,7 @@ export default function PropertyDetails() {
         "/images/properties/the_emperor/5.jpeg",
         "/images/properties/the_emperor/6.jpeg",
       ],
+      video: "/images/properties/WhatsApp Video 2026-05-15 at 17.22.00.mp4",
     },
     {
       title: "DLF Privana",
@@ -165,6 +169,8 @@ export default function PropertyDetails() {
       ],
     },
   ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Header entrance animation remains pure GSAP
   useGSAP(
@@ -356,11 +362,20 @@ export default function PropertyDetails() {
               }}
             >
               {/* Background Property Image container restricted to the visible area to prevent subject truncation */}
-              <div className="absolute inset-0 left-[42%] sm:left-[40%]">
+              <div 
+                className="absolute inset-0 left-[42%] sm:left-[40%] cursor-pointer group/image"
+                onClick={() => setIsModalOpen(true)}
+              >
                 <PropertyImageCarousel
                   images={steps[activeStep]?.images || []}
                   title={steps[activeStep]?.title || ""}
                 />
+                {/* Click Hint Overlay */}
+                <div className="absolute inset-0 bg-emerald-600/0 group-hover/image:bg-emerald-600/10 transition-colors flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-emerald-900 text-xs font-bold opacity-0 group-hover/image:opacity-100 transition-all translate-y-2 group-hover/image:translate-y-0 shadow-xl">
+                    Click to View Gallery
+                  </div>
+                </div>
               </div>
 
               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-slate-950/10 to-slate-950/40 pointer-events-none" />
@@ -397,6 +412,14 @@ export default function PropertyDetails() {
           </a>
         </div>
       </div>
+
+      <PropertyModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        images={steps[activeStep]?.images || []}
+        videoUrl={steps[activeStep]?.video}
+        title={steps[activeStep]?.title || ""}
+      />
     </section>
   );
 }
