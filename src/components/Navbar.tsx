@@ -16,11 +16,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Platform", href: "#why-choose" },
+    { name: "Why Us", href: "#why-choose" },
     { name: "Workflow", href: "#how-it-works" },
-    { name: "Investments", href: "#properties" },
-    { name: "Returns", href: "#pricing" },
-    { name: "Support", href: "#faqs" },
+    { name: "Our Products", href: "#properties" },
+    { name: "FAQ", href: "#pricing" },
   ];
 
   return (

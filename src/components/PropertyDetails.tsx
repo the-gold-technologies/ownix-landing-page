@@ -52,7 +52,7 @@ function PropertyImageCarousel({
           key={img}
           src={img}
           alt={title}
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 scale-105 ${
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
             i === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
           }`}
         />
@@ -222,7 +222,7 @@ export default function PropertyDetails() {
 
   return (
     <section
-      id="property-details-scroll"
+      id="properties"
       ref={containerRef}
       className="py-24 sm:py-32 bg-white border-b border-slate-100 relative opacity-99 select-none"
     >
@@ -306,20 +306,36 @@ export default function PropertyDetails() {
                       >
                         <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-3">
                           <li>
-                            <span className="font-semibold text-slate-500">Unit Value: </span>
-                            <strong className="text-slate-900 font-bold">{step.unitValue}</strong>
+                            <span className="font-semibold text-slate-500">
+                              Unit Value:{" "}
+                            </span>
+                            <strong className="text-slate-900 font-bold">
+                              {step.unitValue}
+                            </strong>
                           </li>
                           <li>
-                            <span className="font-semibold text-slate-500">Targeted IRR: </span>
-                            <strong className="text-slate-900 font-bold">{step.yield}</strong>
+                            <span className="font-semibold text-slate-500">
+                              Targeted IRR:{" "}
+                            </span>
+                            <strong className="text-slate-900 font-bold">
+                              {step.yield}
+                            </strong>
                           </li>
                           <li>
-                            <span className="font-semibold text-slate-500">Appreciation Potential: </span>
-                            <strong className="text-slate-900 font-bold">{step.appreciation}</strong>
+                            <span className="font-semibold text-slate-500">
+                              Appreciation Potential:{" "}
+                            </span>
+                            <strong className="text-slate-900 font-bold">
+                              {step.appreciation}
+                            </strong>
                           </li>
                           <li>
-                            <span className="font-semibold text-slate-500">Available Units: </span>
-                            <strong className="text-slate-900 font-bold">{step.availableUnits}</strong>
+                            <span className="font-semibold text-slate-500">
+                              Available Units:{" "}
+                            </span>
+                            <strong className="text-slate-900 font-bold">
+                              {step.availableUnits}
+                            </strong>
                           </li>
                         </ul>
                       </div>
@@ -336,18 +352,21 @@ export default function PropertyDetails() {
             <div
               className="relative h-[400px] sm:h-[500px] w-full max-w-[682px] bg-slate-100 overflow-hidden shadow-2xl transition-all duration-500 group rounded-r-3xl"
               style={{
-                clipPath: "polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0 50%)",
+                clipPath: "polygon(8% 0, 100% 0, 100% 100%, 8% 100%, 0 50%)",
               }}
             >
-              {/* Background Property Image spanning full container area */}
-              <PropertyImageCarousel
-                images={steps[activeStep]?.images || []}
-                title={steps[activeStep]?.title || ""}
-              />
+              {/* Background Property Image container restricted to the visible area to prevent subject truncation */}
+              <div className="absolute inset-0 left-[42%] sm:left-[40%]">
+                <PropertyImageCarousel
+                  images={steps[activeStep]?.images || []}
+                  title={steps[activeStep]?.title || ""}
+                />
+              </div>
+
               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-slate-950/10 to-slate-950/40 pointer-events-none" />
 
               {/* Absolute Dark Emerald Wedge Panel scaled perfectly for expanded view */}
-              <div className="absolute top-0 left-0 bottom-0 w-[48%] sm:w-[46%] bg-emerald-950 p-6 sm:p-8 flex flex-col justify-center text-left z-10 border-r border-white/5">
+              <div className="absolute top-0 left-0 bottom-0 w-[42%] sm:w-[40%] bg-emerald-950 p-6 sm:p-8 flex flex-col justify-center text-left z-10 border-r border-white/5">
                 {/* Yellow House Icon scaled cleanly */}
                 <div className="w-11 h-11 ml-8 sm:w-12 sm:h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-4 shadow-xs shrink-0">
                   <Home className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -359,7 +378,7 @@ export default function PropertyDetails() {
                 </div>
 
                 {/* Property Name string in sharp white stacked block */}
-                <h4 className="text-xl sm:text-3xl ml-8 font-black text-white leading-tight mt-1 drop-shadow-xs line-clamp-3">
+                <h4 className="text-lg sm:text-2xl lg:text-3xl ml-8 font-black text-white leading-tight mt-1 drop-shadow-xs line-clamp-3">
                   {steps[activeStep]?.title}
                 </h4>
               </div>
