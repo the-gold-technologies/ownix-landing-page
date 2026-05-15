@@ -55,7 +55,9 @@ function PropertyImageCarousel({
           src={img}
           alt={title}
           className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
-            i === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+            i === index
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-4"
           }`}
         />
       ))}
@@ -362,7 +364,7 @@ export default function PropertyDetails() {
               }}
             >
               {/* Background Property Image container restricted to the visible area to prevent subject truncation */}
-              <div 
+              <div
                 className="absolute inset-0 left-[42%] sm:left-[40%] cursor-pointer group/image"
                 onClick={() => setIsModalOpen(true)}
               >
@@ -381,7 +383,7 @@ export default function PropertyDetails() {
               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-slate-950/10 to-slate-950/40 pointer-events-none" />
 
               {/* Absolute Dark Emerald Wedge Panel scaled perfectly for expanded view */}
-              <div className="absolute top-0 left-0 bottom-0 w-[42%] sm:w-[40%] bg-emerald-950 p-6 sm:p-8 flex flex-col justify-center text-left z-10 border-r border-white/5">
+              <div className="absolute top-0 left-0 bottom-0 w-[42%] sm:w-[43%] bg-emerald-950 p-6 sm:p-8 flex flex-col justify-center text-left z-10 border-r border-white/5">
                 {/* Yellow House Icon scaled cleanly */}
                 <div className="w-11 h-11 ml-8 sm:w-12 sm:h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-4 shadow-xs shrink-0">
                   <Home className="w-5 h-5 sm:w-6 sm:h-6" />
