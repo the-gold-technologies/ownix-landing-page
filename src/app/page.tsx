@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import WhyChoose from "@/components/WhyChoose";
 import AboutPlatform from "@/components/AboutPlatform";
 import HowItWorks from "@/components/HowItWorks";
-import FeaturedProperties from "@/components/FeaturedProperties";
 import PropertyDetails from "@/components/PropertyDetails";
 import InvestorInfoSections from "@/components/InvestorInfoSections";
 import LeadCapture from "@/components/LeadCapture";

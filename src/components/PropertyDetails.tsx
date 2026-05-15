@@ -10,12 +10,73 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+interface PropertyStep {
+  title: string;
+  subtitle: string;
+  assetValue: string;
+  unitValue: string;
+  yield: string;
+  allocation: string;
+  appreciation: string;
+  availableUnits: string;
+  desc: string;
+  images: string[];
+}
+
+function PropertyImageCarousel({
+  images,
+  title,
+}: {
+  images: string[];
+  title: string;
+}) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    // Reset index when images change (new property selected)
+    setIndex(0);
+  }, [images]);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {images.map((img, i) => (
+        <img
+          key={img}
+          src={img}
+          alt={title}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 scale-105 ${
+            i === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+          }`}
+        />
+      ))}
+      <div className="absolute bottom-6 right-6 flex gap-1.5 z-20">
+        {images.map((_, i) => (
+          <div
+            key={i}
+            className={`h-1 rounded-full transition-all duration-500 ${
+              i === index ? "w-6 bg-yellow-400" : "w-2 bg-white/30"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function PropertyDetails() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
 
   // Mapped directly to curated properties with their comprehensive institutional investment info
-  const steps = [
+  const steps: PropertyStep[] = [
     {
       title: "Elan Presidential",
       subtitle: "Sector 106, Gurugram – Ultra-Luxury Residences",
@@ -26,7 +87,12 @@ export default function PropertyDetails() {
       appreciation: "High",
       availableUnits: "15",
       desc: "Absolute pre-leased sovereign living covenant featuring premium architectural fitouts, private elite clubhouse privileges, and verified fractional capital syndication.",
-      bgImage: "/images/properties/properti_1.webp",
+      images: [
+        "/images/properties/properti_1.webp",
+        "/images/properties/wa_5.jpeg",
+        "/images/properties/wa_4.jpeg",
+        "/images/properties/wa_3.jpeg",
+      ],
     },
     {
       title: "Elan Emperor",
@@ -38,8 +104,14 @@ export default function PropertyDetails() {
       appreciation: "High",
       availableUnits: "12",
       desc: "Prime flagship retail spaces pre-leased to top-tier anchor tenants with strong contractual escalation structures, deep pedestrian catchment, and guaranteed asset transparency.",
-      bgImage:
-        "/images/properties/elan_the_emperor-sector_106_gurgaon-gurgaon-elan_group_builders.avif",
+      images: [
+        "/images/properties/the_emperor/3.jpeg",
+        "/images/properties/the_emperor/1.jpeg",
+        "/images/properties/the_emperor/2.jpeg",
+        "/images/properties/the_emperor/4.jpeg",
+        "/images/properties/the_emperor/5.jpeg",
+        "/images/properties/the_emperor/6.jpeg",
+      ],
     },
     {
       title: "DLF Privana",
@@ -51,7 +123,12 @@ export default function PropertyDetails() {
       appreciation: "High",
       availableUnits: "24",
       desc: "Magnificent sky mansions set against pristine natural backdrops. Authoritative low-density planning integrated into an elite institutional management and escrow safety pool.",
-      bgImage: "/images/properties/dlf_privana-sector_77-gurgaon-dlf.avif",
+      images: [
+        "/images/properties/dlf_privana-sector_77-gurgaon-dlf.avif",
+        "/images/properties/1775740333863.png",
+        "/images/properties/wa_2.jpeg",
+        "/images/properties/wa_5.jpeg",
+      ],
     },
     {
       title: "Sobha Crescent",
@@ -63,7 +140,12 @@ export default function PropertyDetails() {
       appreciation: "High",
       availableUnits: "18",
       desc: "Exclusive signature living structures catering elastically to corporate and diplomatic leadership. Assured long-term rental appreciation backed by transparent multi-tenant demand.",
-      bgImage: "/images//properties/1775740333863.png",
+      images: [
+        "/images/properties/17_08_2026_02_17_04_oberoi-three-sixty-north.jpg",
+        "/images/properties/wa_5.jpeg",
+        "/images/properties/wa_3.jpeg",
+        "/images/properties/wa_2.jpeg",
+      ],
     },
     {
       title: "Sobha Aranya",
@@ -75,7 +157,12 @@ export default function PropertyDetails() {
       appreciation: "High",
       availableUnits: "10",
       desc: "LEED Platinum equivalent master-planned ecological marvel. Features immersive smart home automation, absolute sovereign title rights, and premium dedicated ingress syndication.",
-      bgImage: "/images/properties/download.jpeg",
+      images: [
+        "/images/properties/download.jpeg",
+        "/images/properties/wa_1.jpeg",
+        "/images/properties/wa_4.jpeg",
+        "/images/properties/wa_3.jpeg",
+      ],
     },
   ];
 
@@ -253,13 +340,11 @@ export default function PropertyDetails() {
               }}
             >
               {/* Background Property Image spanning full container area */}
-              <img
-                key={steps[activeStep]?.bgImage}
-                src={steps[activeStep]?.bgImage}
-                alt={steps[activeStep]?.title}
-                className="w-full h-full object-cover animate-in fade-in duration-500 scale-105 transition-transform group-hover:scale-100"
+              <PropertyImageCarousel
+                images={steps[activeStep]?.images || []}
+                title={steps[activeStep]?.title || ""}
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-slate-950/10 to-slate-950/40" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-slate-950/10 to-slate-950/40 pointer-events-none" />
 
               {/* Absolute Dark Emerald Wedge Panel scaled perfectly for expanded view */}
               <div className="absolute top-0 left-0 bottom-0 w-[48%] sm:w-[46%] bg-emerald-950 p-6 sm:p-8 flex flex-col justify-center text-left z-10 border-r border-white/5">

@@ -4,13 +4,6 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import {
-  ArrowRight,
-  Layers,
-  MessageSquare,
-  ShieldCheck,
-  TrendingUp,
-} from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -86,8 +79,8 @@ export default function InvestorInfoSections() {
                   <span className="absolute top-2 left-2 w-10 h-10 rounded-lg bg-teal-500/10 -z-10" />
 
                   <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight relative z-10">
-                    <span className="text-[#35ddb1]">W</span>hy Ownix
-                    Ownership is Growing
+                    <span className="text-[#35ddb1]">W</span>hy Ownix Ownership
+                    is Growing
                   </h2>
                 </div>
 

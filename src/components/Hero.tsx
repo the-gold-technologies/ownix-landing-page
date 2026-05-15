@@ -60,10 +60,10 @@ export default function Hero() {
               <div className="flex items-center gap-3 sm:gap-5 pt-1">
                 {/* Stacked Real Estate block perfectly left-aligned without side borders */}
                 <div className="shrink-0 text-left pt-1">
-                  <div className="text-[10px] sm:text-xs text-slate-400 font-medium leading-none mb-1">
+                  <div className="text-[25px] sm:text-base text-slate-400 font-medium leading-none mb-1">
                     Real
                   </div>
-                  <div className="text-base sm:text-xl font-bold text-white tracking-tight leading-none">
+                  <div className="text-lg sm:text-3xl font-bold text-white tracking-tight leading-none">
                     Estate
                   </div>
                 </div>
