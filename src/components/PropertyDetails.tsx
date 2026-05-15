@@ -80,7 +80,7 @@ export default function PropertyDetails() {
   // Mapped directly to curated properties with their comprehensive institutional investment info
   const steps: PropertyStep[] = [
     {
-      title: "Elan Presidential",
+      title: "Elan Statement",
       subtitle: "Sector 106, Gurugram – Ultra-Luxury Residences",
       assetValue: "₹5.5 Crores",
       unitValue: "₹55 Lacs",
@@ -95,7 +95,7 @@ export default function PropertyDetails() {
         "/images/properties/wa_4.jpeg",
         "/images/properties/wa_3.jpeg",
       ],
-      video: "/images/properties/WhatsApp Video 2026-05-15 at 17.22.17.mp4",
+      video: "/images/properties/WhatsApp Video 2026-05-15 at 17.22.00.mp4",
     },
     {
       title: "Elan Emperor",
@@ -115,7 +115,7 @@ export default function PropertyDetails() {
         "/images/properties/the_emperor/5.jpeg",
         "/images/properties/the_emperor/6.jpeg",
       ],
-      video: "/images/properties/WhatsApp Video 2026-05-15 at 17.22.00.mp4",
+      video: "/images/properties/WhatsApp Video 2026-05-15 at 17.22.17.mp4",
     },
     {
       title: "DLF Privana",
