@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { Sparkles, ArrowRight, Home } from "lucide-react";
+import {
+  Sparkles,
+  ArrowRight,
+  Home,
+  Download,
+  FileText,
+  Film,
+} from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -23,46 +30,82 @@ interface PropertyStep {
   desc: string;
   images: string[];
   video?: string;
+  videos?: string[];
+  pdfs?: { name: string; url: string }[];
 }
 
-function PropertyImageCarousel({
+function PropertyMediaCarousel({
   images,
+  video,
+  videos,
   title,
 }: {
   images: string[];
+  video?: string;
+  videos?: string[];
   title: string;
 }) {
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    // Reset index when images change (new property selected)
-    setIndex(0);
-  }, [images]);
+  const mediaItems = [
+    ...images.map((img) => ({ type: "image" as const, url: img })),
+    ...(videos && videos.length > 0
+      ? videos.map((vid) => ({ type: "video" as const, url: vid }))
+      : video
+        ? [{ type: "video" as const, url: video }]
+        : []),
+  ];
 
   useEffect(() => {
-    if (images.length <= 1) return;
+    // Reset index when active property media changes
+    setIndex(0);
+  }, [images, video, videos]);
+
+  useEffect(() => {
+    if (mediaItems.length <= 1) return;
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
+      setIndex((prev) => (prev + 1) % mediaItems.length);
+    }, 4500);
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [mediaItems.length]);
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      {images.map((img, i) => (
-        <img
-          key={img}
-          src={img}
-          alt={title}
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
-            i === index
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-4"
-          }`}
-        />
-      ))}
+      {mediaItems.map((item, i) => {
+        const isActive = i === index;
+        if (item.type === "image") {
+          return (
+            <img
+              key={item.url}
+              src={item.url}
+              alt={title}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+                isActive
+                  ? "opacity-100 translate-x-0 scale-100"
+                  : "opacity-0 translate-x-4 scale-95 pointer-events-none"
+              }`}
+            />
+          );
+        } else {
+          return (
+            <video
+              key={item.url}
+              src={item.url}
+              muted
+              autoPlay
+              loop
+              playsInline
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+                isActive
+                  ? "opacity-100 translate-x-0 scale-100"
+                  : "opacity-0 translate-x-4 scale-95 pointer-events-none"
+              }`}
+            />
+          );
+        }
+      })}
       <div className="absolute bottom-6 right-6 flex gap-1.5 z-20">
-        {images.map((_, i) => (
+        {mediaItems.map((_, i) => (
           <div
             key={i}
             className={`h-1 rounded-full transition-all duration-500 ${
@@ -154,7 +197,7 @@ export default function PropertyDetails() {
       ],
     },
     {
-      title: "Sobha Aranya",
+      title: "Sobha Altus",
       subtitle: "Sector 80, Gurugram – Forest-Themed Sky Villas",
       assetValue: "₹8.5 Crores",
       unitValue: "₹85 Lacs",
@@ -168,6 +211,20 @@ export default function PropertyDetails() {
         "/images/properties/wa_1.jpeg",
         "/images/properties/wa_4.jpeg",
         "/images/properties/wa_3.jpeg",
+      ],
+      videos: [
+        "/images/properties/WhatsApp Video 2026-05-18 at 13.46.19.mp4",
+        "/images/properties/WhatsApp Video 2026-05-18 at 13.46.19 copy.mp4",
+      ],
+      pdfs: [
+        {
+          name: "Sobha Altus Brochure",
+          url: "/images/properties/SOBHA Altus Brochure .pdf",
+        },
+        {
+          name: "Sobha Altus Master Plan",
+          url: "/images/properties/Sobha Altus - MASTER PLAN.pdf",
+        },
       ],
     },
   ];
@@ -264,8 +321,10 @@ export default function PropertyDetails() {
                 <div
                   key={idx}
                   id={`step-text-block-${idx}`}
-                  /* Adjusted container height perfectly mapped to the increased sticky image viewport for effortless centering */
-                  className="h-[440px] items-center sm:h-[560px] flex flex-col justify-center text-left relative cursor-pointer group py-4"
+                  /* Adjusted container height perfectly mapped to the increased sticky image viewport for effortless centering, with support for content-based layout growth when active */
+                  className={`min-h-[440px] sm:min-h-[560px] h-auto flex flex-col justify-center text-left relative cursor-pointer group py-8 ${
+                    isActive ? "z-20" : "z-10"
+                  }`}
                   onClick={() => setActiveStep(idx)}
                 >
                   <div
@@ -304,12 +363,12 @@ export default function PropertyDetails() {
                         {step.desc}
                       </p>
 
-                      {/* Integrated Typography Metrics Flow (No Cards / No Box Enclosures) */}
+                      {/* Integrated Typography Metrics Flow & Downloads/Videos */}
                       <div
-                        className={`pt-2.5 transition-all duration-500 space-y-2 ${
+                        className={`pt-2.5 transition-all duration-500 space-y-6 ${
                           isActive
-                            ? "opacity-100 max-h-48 translate-y-0"
-                            : "opacity-0 max-h-0 overflow-hidden -translate-y-2 pointer-events-none"
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 h-0 overflow-hidden -translate-y-2 pointer-events-none"
                         }`}
                       >
                         <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-3">
@@ -346,6 +405,37 @@ export default function PropertyDetails() {
                             </strong>
                           </li>
                         </ul>
+
+                        {/* Premium Downloadable Resources (PDFs) */}
+                        {step.pdfs && step.pdfs.length > 0 && (
+                          <div className="space-y-2.5 w-full pt-4 border-t border-slate-100">
+                            <span className="text-[11px] font-bold tracking-wider text-emerald-800 uppercase block">
+                              Downloadable Documents
+                            </span>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                              {step.pdfs.map((pdf, pIdx) => (
+                                <a
+                                  key={pIdx}
+                                  href={pdf.url}
+                                  download
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200/60 hover:border-emerald-200 text-slate-700 hover:text-emerald-950 transition-all duration-300 group/btn shadow-2xs animate-in fade-in slide-in-from-bottom-2"
+                                >
+                                  <FileText className="w-4 h-4 text-emerald-600 shrink-0" />
+                                  <div className="flex flex-col text-left">
+                                    <span className="text-xs font-bold leading-tight group-hover/btn:text-emerald-900">
+                                      {pdf.name}
+                                    </span>
+                                    <span className="text-[10px] text-slate-400 font-medium">
+                                      PDF Document
+                                    </span>
+                                  </div>
+                                  <Download className="w-3.5 h-3.5 text-slate-400 group-hover/btn:text-emerald-700 ml-auto shrink-0 transition-transform group-hover/btn:translate-y-0.5" />
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -368,8 +458,10 @@ export default function PropertyDetails() {
                 className="absolute inset-0 left-[42%] sm:left-[40%] cursor-pointer group/image"
                 onClick={() => setIsModalOpen(true)}
               >
-                <PropertyImageCarousel
+                <PropertyMediaCarousel
                   images={steps[activeStep]?.images || []}
+                  video={steps[activeStep]?.video}
+                  videos={steps[activeStep]?.videos}
                   title={steps[activeStep]?.title || ""}
                 />
                 {/* Click Hint Overlay */}
@@ -420,6 +512,7 @@ export default function PropertyDetails() {
         onClose={() => setIsModalOpen(false)}
         images={steps[activeStep]?.images || []}
         videoUrl={steps[activeStep]?.video}
+        videoUrls={steps[activeStep]?.videos}
         title={steps[activeStep]?.title || ""}
       />
     </section>

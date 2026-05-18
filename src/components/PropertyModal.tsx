@@ -9,6 +9,7 @@ interface PropertyModalProps {
   onClose: () => void;
   images: string[];
   videoUrl?: string;
+  videoUrls?: string[];
   title: string;
 }
 
@@ -17,11 +18,14 @@ export default function PropertyModal({
   onClose,
   images,
   videoUrl,
+  videoUrls,
   title,
 }: PropertyModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
-  const totalItems = images.length + (videoUrl ? 1 : 0);
+
+  const videos = videoUrls && videoUrls.length > 0 ? videoUrls : (videoUrl ? [videoUrl] : []);
+  const totalItems = images.length + videos.length;
 
   useEffect(() => {
     setMounted(true);
@@ -58,7 +62,8 @@ export default function PropertyModal({
     setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems);
   };
 
-  const isVideoSlide = videoUrl && currentIndex === images.length;
+  const isVideoSlide = currentIndex >= images.length;
+  const activeVideoUrl = isVideoSlide ? videos[currentIndex - images.length] : undefined;
 
   return createPortal(
     <div 
@@ -82,7 +87,8 @@ export default function PropertyModal({
           {isVideoSlide ? (
             <div className="w-full h-full bg-black flex items-center justify-center">
               <video
-                src={videoUrl}
+                key={activeVideoUrl}
+                src={activeVideoUrl}
                 controls
                 autoPlay
                 className="w-full h-full object-contain"
@@ -100,7 +106,7 @@ export default function PropertyModal({
         {/* Title Overlay */}
         <div className="absolute top-0 left-0 right-0 p-8 bg-gradient-to-b from-black/60 to-transparent pointer-events-none">
           <h3 className="text-white text-xl sm:text-2xl font-black tracking-tight drop-shadow-lg">
-            {title} {isVideoSlide ? "(Property Video)" : `(Image ${currentIndex + 1})`}
+            {title} {isVideoSlide ? `(Video ${currentIndex - images.length + 1})` : `(Image ${currentIndex + 1})`}
           </h3>
         </div>
 
