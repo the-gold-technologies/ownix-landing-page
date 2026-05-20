@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} scroll-smooth antialiased`}>
       <body className="font-sans bg-white text-slate-900 min-h-screen flex flex-col selection:bg-emerald-100 selection:text-emerald-950">
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

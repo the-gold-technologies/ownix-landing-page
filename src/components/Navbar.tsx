@@ -16,10 +16,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Why Us", href: "#why-choose" },
-    { name: "Workflow", href: "#how-it-works" },
-    { name: "Our Products", href: "#properties" },
-    { name: "FAQ", href: "#pricing" },
+    { name: "Why Us", href: "/#why-choose" },
+    { name: "Workflow", href: "/#how-it-works" },
+    { name: "Our Products", href: "/#properties" },
+    { name: "FAQ", href: "/#faqs" },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function Navbar() {
       <div className="w-full flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#"
+          href="/"
           id="nav-logo-link"
           className="flex items-center gap-2 sm:gap-3 group focus:outline-none"
         >
