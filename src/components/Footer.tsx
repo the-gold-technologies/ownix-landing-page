@@ -221,9 +221,9 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#35ddb1] mt-1 shrink-0 stroke-[2]" />
                 <span className="leading-relaxed block">
-                  Sector 63, Noida
+                  A-328 Defence Colony,
                   <br />
-                  UP – 201309
+                  New Delhi 110024
                 </span>
               </div>
 
@@ -231,10 +231,10 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#35ddb1] shrink-0 stroke-[2]" />
                 <a
-                  href="mailto:info@thegoldtechnologies.com"
+                  href="mailto:ownixrealty@gmail.com"
                   className="hover:text-[#35ddb1] transition-colors truncate block"
                 >
-                  info@thegoldtechnologies.com
+                  ownixrealty@gmail.com
                 </a>
               </div>
 
@@ -242,10 +242,10 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#35ddb1] shrink-0 stroke-[2]" />
                 <a
-                  href="tel:+919958512711"
+                  href="tel:+919700001421"
                   className="hover:text-[#35ddb1] transition-colors block font-mono"
                 >
-                  +91-9958512711
+                  +91 97000 01421
                 </a>
               </div>
             </div>
@@ -256,7 +256,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-[#2A8282] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-100">
           <div>
             <span>
-              © {currentYear} The Gold Technologies. All rights reserved.
+              © {currentYear} Ownix Realty. All rights reserved.
             </span>
           </div>
 

@@ -12,6 +12,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import PricingBlock from "@/components/PricingBlock";
+import LeadModal from "@/components/LeadModal";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
         <LeadCapture />
       </main>
       <Footer />
+      <LeadModal />
     </SmoothScroll>
   );
 }

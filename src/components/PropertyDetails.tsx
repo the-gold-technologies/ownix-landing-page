@@ -497,13 +497,22 @@ export default function PropertyDetails() {
 
         {/* Global CTA Action Button */}
         <div className="mt-12 sm:mt-16 text-center">
-          <a
-            href="#lead-capture"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-stone-50 border border-slate-200/80 text-sm font-bold text-emerald-800 hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-sm group"
+          <button
+            onClick={() => {
+              window.dispatchEvent(
+                new CustomEvent("open-lead-modal", {
+                  detail: {
+                    formType: "Express Interest",
+                    propertyName: steps[activeStep]?.title,
+                  },
+                }),
+              );
+            }}
+            className="cursor-pointer inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-stone-50 border border-slate-200/80 text-sm font-bold text-emerald-800 hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-sm group"
           >
             <span>View Details / Express Interest</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </button>
         </div>
       </div>
 

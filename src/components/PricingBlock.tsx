@@ -39,7 +39,9 @@ export default function PricingBlock() {
 
             <div>
               <a
-                href="#lead-capture"
+                href="https://wa.me/919700001421"
+                target="_blank"
+                rel="noopener noreferrer"
                 id="pricing-talk-team-btn"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base tracking-wide transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:scale-105 active:scale-95 group"
               >

@@ -70,15 +70,73 @@ export default function LeadCapture() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate clean premium asynchronous response state
-    setTimeout(() => {
+    try {
+      // Fetch public access key dynamically from server config
+      const configRes = await fetch("/api/contact");
+      const { key } = await configRes.json();
+
+      if (key) {
+        // Submit directly from user's browser to Web3Forms to bypass Cloudflare bot detection
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            access_key: key,
+            subject: "New Lead from Ownix - Main Page Lead Capture (Get Early Access)",
+            from_name: "Ownix Realty Portal",
+            "Notification Message": "Hello, a new form submission has been captured on your website. Details are listed below:",
+            "Form Type / Source": "Main Page Lead Capture (Get Early Access)",
+            "Full Name": formData.fullName,
+            "Email Address": formData.emailAddress,
+            "Phone Number": formData.phoneNumber,
+            "Investment Budget": formData.investmentBudget,
+            "User Message": "Interested in co-ownership.",
+            "System Info": "This is an automated lead notification sent from the Ownix Realty Portal."
+          })
+        });
+
+        const data = await response.json();
+        if (response.ok && data.success) {
+          setSubmitted(true);
+        } else {
+          alert(data.message || "Submission failed. Please check details.");
+        }
+      } else {
+        // Fallback: POST to local /api/contact which sends to FormSubmit
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "Form Source": "Main Page Lead Capture (Get Early Access)",
+            "Full Name": formData.fullName,
+            "Phone Number": formData.phoneNumber,
+            "Email Address": formData.emailAddress,
+            "Investment Budget": formData.investmentBudget,
+            "User Message": "Interested in co-ownership."
+          })
+        });
+
+        if (response.ok) {
+          setSubmitted(true);
+        } else {
+          alert("Something went wrong. Please try again or contact us directly.");
+        }
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Network error. Please try again.");
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 1000);
+    }
   };
 
   const budgets = [
@@ -133,7 +191,7 @@ export default function LeadCapture() {
                     E-mail
                   </div>
                   <div className="text-sm font-semibold text-slate-900">
-                    support@ownix.com
+                    ownixrealty@gmail.com
                   </div>
                 </div>
               </div>
@@ -148,7 +206,7 @@ export default function LeadCapture() {
                     Phone number
                   </div>
                   <div className="text-sm font-semibold text-slate-900">
-                    +91 80000 00000
+                    +91 97000 01421
                   </div>
                 </div>
               </div>

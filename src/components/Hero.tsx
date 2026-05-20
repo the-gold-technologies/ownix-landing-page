@@ -103,12 +103,18 @@ export default function Hero() {
                   >
                     Explore Properties
                   </a>
-                  <a
-                    href="#lead-capture"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl border border-white/40 text-white text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] text-center tracking-tight shrink-0"
+                  <button
+                    onClick={() => {
+                      window.dispatchEvent(
+                        new CustomEvent("open-lead-modal", {
+                          detail: { formType: "Join the Waitlist" },
+                        }),
+                      );
+                    }}
+                    className="cursor-pointer inline-flex items-center justify-center px-8 py-3.5 rounded-2xl border border-white/40 text-white text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] text-center tracking-tight shrink-0"
                   >
                     Join the Waitlist
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

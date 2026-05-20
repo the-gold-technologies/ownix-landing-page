@@ -38,8 +38,8 @@ export default function Navbar() {
           className="flex items-center gap-2 sm:gap-3 group focus:outline-none"
         >
           <div className="relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-emerald-600/30 shadow-xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-            <span className="text-xs font-black tracking-tight text-emerald-700">
-              TGT
+            <span className="text-xs font-black tracking-tight text-emerald-700 font-mono">
+              O
             </span>
           </div>
           <div className="flex flex-col">
@@ -50,10 +50,10 @@ export default function Navbar() {
                   : "text-white group-hover:text-[#35ddb1]"
               }`}
             >
-              THE GOLD
+              OWNIX
             </span>
             <span className="text-[9px] sm:text-[10px] font-bold tracking-widest text-slate-400 leading-tight">
-              TECHNOLOGIES
+              REALTY
             </span>
           </div>
         </a>
@@ -79,17 +79,19 @@ export default function Navbar() {
         {/* Right CTA mirroring Digiboost top-right action buttons */}
         <div className="hidden md:flex items-center gap-2 lg:gap-3">
           {/* Button 1: Persistent Solid filled primary trigger with signature emerald-600 brand token */}
-          <a
-            href="#lead-capture"
+          <button
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent("open-lead-modal", { detail: { formType: "Get Started" } }));
+            }}
             id="nav-cta-button-primary"
-            className="relative inline-flex items-center justify-center px-4 lg:px-5 py-2 text-xs lg:text-sm font-bold rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700 shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none tracking-tight"
+            className="cursor-pointer relative inline-flex items-center justify-center px-4 lg:px-5 py-2 text-xs lg:text-sm font-bold rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700 shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none tracking-tight"
           >
             <span>Get Started</span>
-          </a>
+          </button>
 
           {/* Button 2: Dynamic outline button adjusting cleanly for visibility */}
           <a
-            href="tel:+919958512711"
+            href="tel:+919700001421"
             id="nav-cta-button-secondary"
             className={`relative inline-flex items-center justify-center px-4 lg:px-5 py-2 text-xs lg:text-sm font-bold rounded-2xl border transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none tracking-tight ${
               isScrolled
@@ -150,16 +152,18 @@ export default function Navbar() {
                 isScrolled ? "border-slate-100" : "border-white/5"
               }`}
             >
-              <a
-                href="#lead-capture"
+              <button
                 id="mobile-nav-cta-button-primary"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center w-full py-3 text-sm font-bold text-white bg-emerald-600 rounded-2xl shadow-md hover:bg-emerald-700 transition-colors"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent("open-lead-modal", { detail: { formType: "Get Started" } }));
+                }}
+                className="cursor-pointer flex items-center justify-center w-full py-3 text-sm font-bold text-white bg-emerald-600 rounded-2xl shadow-md hover:bg-emerald-700 transition-colors"
               >
                 Get Started
-              </a>
+              </button>
               <a
-                href="tel:+919958512711"
+                href="tel:+919700001421"
                 id="mobile-nav-cta-button-secondary"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center justify-center w-full py-3 text-sm font-bold border rounded-2xl transition-colors ${
