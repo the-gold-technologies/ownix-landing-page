@@ -26,8 +26,8 @@ export default function Navbar() {
     <header
       className={`fixed z-50 transition-all duration-500 ${
         isScrolled
-          ? "top-3 left-4 right-4 max-w-6xl mx-auto bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-xl rounded-full py-2.5 px-4 sm:px-6"
-          : "top-0 left-0 right-0 bg-transparent py-5 px-4 sm:px-6 lg:px-8"
+          ? "top-3 left-4 right-4 max-w-6xl mx-auto bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-xl rounded-full py-0 px-4 sm:px-6"
+          : "top-0 left-0 right-0 bg-transparent py-4 px-4 sm:px-6 lg:px-8"
       }`}
     >
       <div className="w-full flex items-center justify-between">
@@ -35,27 +35,22 @@ export default function Navbar() {
         <a
           href="/"
           id="nav-logo-link"
-          className="flex items-center gap-2 sm:gap-3 group focus:outline-none"
+          className={`${isScrolled ? "h-16" : "h-20"} flex items-center group focus:outline-none relative aspect-[1600/915]`}
         >
-          <div className="relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-emerald-600/30 shadow-xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-            <span className="text-xs font-black tracking-tight text-emerald-700 font-mono">
-              O
-            </span>
-          </div>
-          <div className="flex flex-col">
-            <span
-              className={`text-xs sm:text-sm font-extrabold tracking-wider transition-colors duration-200 leading-tight ${
-                isScrolled
-                  ? "text-slate-900 group-hover:text-emerald-700"
-                  : "text-white group-hover:text-[#35ddb1]"
-              }`}
-            >
-              OWNIX
-            </span>
-            <span className="text-[9px] sm:text-[10px] font-bold tracking-widest text-slate-400 leading-tight">
-              REALTY
-            </span>
-          </div>
+          <img
+            src="/images/whatsappLogo.png"
+            alt="Ownix Realty Logo"
+            className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 group-hover:scale-105 ${
+              isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          />
+          <img
+            src="/images/blackLogo.png"
+            alt="Ownix Realty Logo"
+            className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 group-hover:scale-105 ${
+              isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          />
         </a>
 
         {/* Desktop Navigation Links */}
@@ -81,7 +76,11 @@ export default function Navbar() {
           {/* Button 1: Persistent Solid filled primary trigger with signature emerald-600 brand token */}
           <button
             onClick={() => {
-              window.dispatchEvent(new CustomEvent("open-lead-modal", { detail: { formType: "Get Started" } }));
+              window.dispatchEvent(
+                new CustomEvent("open-lead-modal", {
+                  detail: { formType: "Get Started" },
+                }),
+              );
             }}
             id="nav-cta-button-primary"
             className="cursor-pointer relative inline-flex items-center justify-center px-4 lg:px-5 py-2 text-xs lg:text-sm font-bold rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700 shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none tracking-tight"
@@ -156,7 +155,11 @@ export default function Navbar() {
                 id="mobile-nav-cta-button-primary"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  window.dispatchEvent(new CustomEvent("open-lead-modal", { detail: { formType: "Get Started" } }));
+                  window.dispatchEvent(
+                    new CustomEvent("open-lead-modal", {
+                      detail: { formType: "Get Started" },
+                    }),
+                  );
                 }}
                 className="cursor-pointer flex items-center justify-center w-full py-3 text-sm font-bold text-white bg-emerald-600 rounded-2xl shadow-md hover:bg-emerald-700 transition-colors"
               >
