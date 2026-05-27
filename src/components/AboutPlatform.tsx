@@ -120,7 +120,7 @@ export default function AboutPlatform() {
             <div className="gsap-about-text inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 w-max mb-6 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                Section 3 – About the Platform
+                About the Platform
               </span>
             </div>
 
