@@ -22,7 +22,7 @@ export default function LegalPage() {
   return (
     <div className="min-h-screen bg-stone-50 text-slate-800 flex flex-col font-sans">
       {/* Cohesive Navbar styling */}
-      <Navbar />
+      <Navbar theme="light" />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
         {/* Back Link */}

@@ -3,7 +3,11 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-export default function Navbar() {
+interface NavbarProps {
+  theme?: "dark" | "light";
+}
+
+export default function Navbar({ theme = "dark" }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -41,14 +45,14 @@ export default function Navbar() {
             src="/images/whatsappLogo.png"
             alt="Ownix Realty Logo"
             className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 group-hover:scale-105 ${
-              isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+              !isScrolled && theme === "dark" ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           />
           <img
             src="/images/blackLogo.png"
             alt="Ownix Realty Logo"
             className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 group-hover:scale-105 ${
-              isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+              isScrolled || theme === "light" ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           />
         </a>
@@ -61,7 +65,7 @@ export default function Navbar() {
               href={link.href}
               id={`nav-link-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
               className={`text-xs lg:text-sm font-bold transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:transition-all after:duration-300 ${
-                isScrolled
+                isScrolled || theme === "light"
                   ? "text-slate-700 hover:text-emerald-600 after:bg-emerald-600"
                   : "text-slate-300 hover:text-white after:bg-[#35ddb1]"
               }`}
@@ -93,7 +97,7 @@ export default function Navbar() {
             href="tel:+919700001421"
             id="nav-cta-button-secondary"
             className={`relative inline-flex items-center justify-center px-4 lg:px-5 py-2 text-xs lg:text-sm font-bold rounded-2xl border transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none tracking-tight ${
-              isScrolled
+              isScrolled || theme === "light"
                 ? "border-slate-200 text-slate-700 hover:bg-slate-50"
                 : "border-white/40 text-white hover:bg-white/10"
             }`}
@@ -107,7 +111,7 @@ export default function Navbar() {
           id="mobile-menu-toggle-btn"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`md:hidden p-2 rounded-lg focus:outline-none transition-colors ${
-            isScrolled
+            isScrolled || theme === "light"
               ? "text-slate-600 hover:text-emerald-700 hover:bg-slate-50"
               : "text-slate-300 hover:text-white hover:bg-white/5"
           }`}
@@ -125,7 +129,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div
           className={`md:hidden absolute top-full left-0 right-0 border-b px-4 pt-3 pb-6 transition-all animate-in fade-in duration-200 ${
-            isScrolled
+            isScrolled || theme === "light"
               ? "bg-white border-slate-100 shadow-xl mt-3 rounded-2xl"
               : "bg-[#041A1A] border-white/5 shadow-2xl backdrop-blur-xl"
           }`}
@@ -138,7 +142,7 @@ export default function Navbar() {
                 id={`mobile-nav-link-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`text-base font-bold px-3 py-2 rounded-lg transition-colors ${
-                  isScrolled
+                  isScrolled || theme === "light"
                     ? "text-slate-800 hover:text-emerald-600 hover:bg-slate-50"
                     : "text-slate-300 hover:text-white hover:bg-white/5"
                 }`}
@@ -148,7 +152,7 @@ export default function Navbar() {
             ))}
             <div
               className={`pt-3 mt-2 border-t flex flex-col gap-2 ${
-                isScrolled ? "border-slate-100" : "border-white/5"
+                isScrolled || theme === "light" ? "border-slate-100" : "border-white/5"
               }`}
             >
               <button
@@ -170,7 +174,7 @@ export default function Navbar() {
                 id="mobile-nav-cta-button-secondary"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center justify-center w-full py-3 text-sm font-bold border rounded-2xl transition-colors ${
-                  isScrolled
+                  isScrolled || theme === "light"
                     ? "border-slate-200 text-slate-700 hover:bg-slate-50"
                     : "border-white/40 text-white hover:bg-white/5"
                 }`}
