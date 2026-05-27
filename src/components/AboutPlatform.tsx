@@ -60,10 +60,10 @@ export default function AboutPlatform() {
     <section
       id="about"
       ref={containerRef}
-      className="py-24 sm:py-28 bg-gradient-to-b from-stone-50 via-emerald-100/40 to-stone-100 relative overflow-hidden border-b border-slate-100 opacity-99"
+      className="py-24 sm:py-28 bg-gradient-to-b from-stone-50 via-gold-100/40 to-stone-100 relative overflow-hidden border-b border-slate-100 opacity-99"
     >
       {/* Decorative ambient background ring */}
-      <div className="absolute -top-40 right-1/4 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-40 right-1/4 w-96 h-96 bg-gold-600/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -85,11 +85,11 @@ export default function AboutPlatform() {
 
               {/* Overlay side trust seal overlaid perfectly on top-left edge */}
               <div className="absolute top-1/3 left-4 z-20 p-3 rounded-2xl bg-slate-900/95 backdrop-blur-md text-white border border-slate-800 shadow-xl flex items-center gap-3 hidden sm:flex">
-                <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-400 shrink-0">
+                <div className="p-2 rounded-xl bg-gold-500/20 text-gold-400 shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div className="pr-2">
-                  <div className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest">
+                  <div className="text-[9px] font-bold text-gold-400 uppercase tracking-widest">
                     Core Focus
                   </div>
                   <div className="text-xs font-bold text-slate-100 leading-tight">
@@ -108,7 +108,7 @@ export default function AboutPlatform() {
                     Premium Real Estate
                   </div>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gold-50 text-gold-600 flex items-center justify-center shrink-0">
                   <Award className="w-5 h-5" />
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function AboutPlatform() {
           {/* Right Text Content Panel */}
           <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-center text-left">
             <div className="gsap-about-text inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 w-max mb-6 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+              <Sparkles className="w-3.5 h-3.5 text-gold-600" />
               <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
                 About the Platform
               </span>
@@ -126,7 +126,7 @@ export default function AboutPlatform() {
 
             <h2 className="gsap-about-text text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mb-8 leading-tight">
               Built by Real Estate{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-600 to-gold-500">
                 Experts
               </span>
             </h2>
@@ -146,7 +146,7 @@ export default function AboutPlatform() {
 
             {/* Modern High-End Stats Ribbon */}
             <div className="gsap-about-text mt-10 pt-8 border-t border-slate-200/80 grid grid-cols-3 gap-6">
-              <div className="relative pl-4 border-l-2 border-emerald-600">
+              <div className="relative pl-4 border-l-2 border-gold-600">
                 <div className="text-2xl font-black text-slate-900 tracking-tight">
                   Smarter
                 </div>
@@ -155,8 +155,8 @@ export default function AboutPlatform() {
                 </div>
               </div>
 
-              <div className="relative pl-4 border-l-2 border-emerald-600">
-                <div className="text-2xl font-black text-emerald-600 tracking-tight">
+              <div className="relative pl-4 border-l-2 border-gold-600">
+                <div className="text-2xl font-black text-gold-600 tracking-tight">
                   Strong
                 </div>
                 <div className="text-[11px] text-slate-500 font-semibold tracking-wider uppercase mt-1">
@@ -164,7 +164,7 @@ export default function AboutPlatform() {
                 </div>
               </div>
 
-              <div className="relative pl-4 border-l-2 border-emerald-600">
+              <div className="relative pl-4 border-l-2 border-gold-600">
                 <div className="text-2xl font-black text-slate-900 tracking-tight">
                   Accessible
                 </div>

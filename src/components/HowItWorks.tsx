@@ -124,23 +124,23 @@ export default function HowItWorks() {
     <section
       id="how-it-works"
       ref={containerRef}
-      className="py-24 sm:py-32 bg-gradient-to-b from-white via-emerald-50/20 to-stone-50 border-b border-slate-100 relative opacity-99 select-none overflow-hidden"
+      className="py-24 sm:py-32 bg-gradient-to-b from-white via-gold-50/20 to-stone-50 border-b border-slate-100 relative opacity-99 select-none overflow-hidden"
     >
       {/* Background radial highlight matching FinalCTA */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45rem] h-[45rem] bg-emerald-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45rem] h-[45rem] bg-gold-600/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Supreme Header Section mimicking screenshot layout style exactly */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 gsap-title">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200/80 mb-4 shadow-2xs font-mono">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            <Sparkles className="w-3.5 h-3.5 text-gold-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
               Simplified Workflow
             </span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
-            See how <span className="text-emerald-600">easy</span> it is to use
+            See how <span className="text-gold-600">easy</span> it is to use
             Ownix
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto">
@@ -184,7 +184,7 @@ export default function HowItWorks() {
                     {/* Dynamic live scroll-drawing segments placed absolutely over the base track */}
                     {/* Horizontal top segment */}
                     <div
-                      className={`absolute top-0 left-0 right-0 border-t-[3px] border-solid border-emerald-600 gsap-line-h ${
+                      className={`absolute top-0 left-0 right-0 border-t-[3px] border-solid border-gold-600 gsap-line-h ${
                         isRightAligned ? "origin-right" : "origin-left"
                       }`}
                     />
@@ -195,7 +195,7 @@ export default function HowItWorks() {
                         isRightAligned
                           ? "left-0 border-l-[3px]"
                           : "right-0 border-r-[3px]"
-                      } border-solid border-emerald-600 origin-top gsap-line-v`}
+                      } border-solid border-gold-600 origin-top gsap-line-v`}
                     />
                   </div>
                 )}
@@ -211,11 +211,11 @@ export default function HowItWorks() {
                     } w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center z-10 pointer-events-none group-hover:scale-110 transition-transform duration-500`}
                   >
                     {/* Outer faint ring */}
-                    <div className="absolute inset-0 rounded-full bg-emerald-50/80 scale-110 sm:scale-125 animate-pulse duration-1000" />
+                    <div className="absolute inset-0 rounded-full bg-gold-50/80 scale-110 sm:scale-125 animate-pulse duration-1000" />
                     {/* Secondary soft ring */}
-                    <div className="absolute inset-1.5 sm:inset-2 rounded-full bg-emerald-100/90 shadow-inner" />
+                    <div className="absolute inset-1.5 sm:inset-2 rounded-full bg-gold-100/90 shadow-inner" />
                     {/* Crisp solid core */}
-                    <div className="absolute inset-3 sm:inset-4 rounded-full bg-white shadow-md border border-emerald-50 flex items-center justify-center text-emerald-600">
+                    <div className="absolute inset-3 sm:inset-4 rounded-full bg-white shadow-md border border-gold-50 flex items-center justify-center text-gold-600">
                       <IconComp className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
                     </div>
                   </div>
@@ -225,12 +225,12 @@ export default function HowItWorks() {
                     {/* Text wrapper elevated to z-30 to ensure absolute typography clarity over soft glowing aura rings */}
                     <div className="relative z-30 pt-1 sm:pt-2">
                       {/* Subtitle baseline marker */}
-                      <div className="text-[10px] sm:text-xs font-mono font-bold text-emerald-600 uppercase tracking-widest mb-1.5">
+                      <div className="text-[10px] sm:text-xs font-mono font-bold text-gold-600 uppercase tracking-widest mb-1.5">
                         Step 0{idx + 1} • {step.subtitle}
                       </div>
 
                       {/* Title string */}
-                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight mb-2.5 group-hover:text-emerald-950 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight mb-2.5 group-hover:text-gold-950 transition-colors">
                         {step.title}
                       </h3>
 
@@ -250,7 +250,7 @@ export default function HowItWorks() {
         <div className="mt-16 sm:mt-24 text-center relative z-20">
           <a
             href="#properties"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-emerald-700 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.97] group"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gold-600 text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-gold-700 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.97] group"
           >
             <span>Explore live income-generating deals below</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

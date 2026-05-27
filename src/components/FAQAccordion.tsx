@@ -93,15 +93,15 @@ export default function FAQAccordion() {
           <div className="lg:col-span-5 lg:sticky lg:top-32 pt-2 gsap-faq-header">
             
             {/* Soft accent pill tag mimicking reference layout verbatim */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-xs font-medium text-emerald-700 mb-5 border border-emerald-100/50">
-              <HelpCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-50 text-xs font-medium text-gold-700 mb-5 border border-gold-100/50">
+              <HelpCircle className="w-3.5 h-3.5 text-gold-600 shrink-0" />
               <span>Frequently asked questions</span>
             </div>
 
             {/* Verbatim Section Heading formatted for optimal two-color visual break */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.08]">
               Frequently asked <br />
-              <span className="text-emerald-600 font-medium">questions</span>
+              <span className="text-gold-600 font-medium">questions</span>
             </h2>
 
           </div>
@@ -128,7 +128,7 @@ export default function FAQAccordion() {
                       className="w-full text-left py-5 pl-6 pr-5 flex items-center justify-between gap-4 focus:outline-none group"
                       aria-expanded={isOpen}
                     >
-                      <span className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors duration-200">
+                      <span className="text-base sm:text-lg font-semibold text-slate-900 group-hover:text-gold-700 transition-colors duration-200">
                         {faq.q}
                       </span>
                       
@@ -136,8 +136,8 @@ export default function FAQAccordion() {
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
                           isOpen
-                            ? "bg-emerald-600 text-white shadow-2xs"
-                            : "bg-emerald-100/80 text-emerald-700 group-hover:bg-emerald-200/80"
+                            ? "bg-gold-600 text-white shadow-2xs"
+                            : "bg-gold-100/80 text-gold-700 group-hover:bg-gold-200/80"
                         }`}
                       >
                         <ChevronDown

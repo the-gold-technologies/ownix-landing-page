@@ -1,7 +1,18 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --font-sans: var(--font-outfit), sans-serif;
+  --color-gold-50: #FAF8F2;
+  --color-gold-100: #F6EDD3;
+  --color-gold-200: #EDDAA3;
+  --color-gold-300: #E2C26C;
+  --color-gold-400: #F3D078;
+  --color-gold-500: #E5B82C;
+  --color-gold-600: #C99E1E;
+  --color-gold-700: #A27D16;
+  --color-gold-800: #7E600F;
+  --color-gold-900: #624A0A;
+  --color-gold-950: #3E2F05;
 }
 
 @keyframes float {

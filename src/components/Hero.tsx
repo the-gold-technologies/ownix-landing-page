@@ -40,10 +40,10 @@ export default function Hero() {
         className="relative pt-24 sm:pt-28 pb-10 sm:pb-16 bg-white overflow-hidden select-none"
       >
         {/* Absolute Dark Teal background block covering the upper portion to achieve the exact half-dark half-white layout overlap */}
-        <div className="absolute top-0 left-0 right-0 h-[calc(100%-140px)] sm:h-[calc(100%-200px)] bg-gradient-to-b from-[#041A1A] via-[#082828] to-[#041A1A] z-0 pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-[calc(100%-140px)] sm:h-[calc(100%-200px)] bg-gradient-to-b from-[#2C1F0A] via-[#3F2D0E] to-[#2C1F0A] z-0 pointer-events-none">
           {/* Subtle radial ambient studio highlights */}
-          <div className="absolute top-1/4 left-1/4 w-[45rem] h-[45rem] bg-[#35ddb1]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 right-1/4 w-[40rem] h-[40rem] bg-teal-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-[45rem] h-[45rem] bg-[#F5C747]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 w-[40rem] h-[40rem] bg-gold-500/5 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -53,7 +53,7 @@ export default function Hero() {
             <div className="lg:col-span-7 space-y-3 sm:space-y-4 gsap-hero-left">
               {/* Line 1 */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] font-extrabold tracking-tight text-white leading-none">
-                Why Let <span className="text-[#35ddb1]">Premium</span>
+                Why Let <span className="text-[#F5C747]">Premium</span>
               </h1>
 
               {/* Line 2 with side label exactly mapped to Digiboost alignment */}
@@ -99,7 +99,7 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 pt-1">
                   <a
                     href="#properties"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-emerald-600 text-white text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 hover:scale-[1.02] active:scale-[0.98] text-center tracking-tight shrink-0"
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-gold-600 text-white text-xs sm:text-sm font-bold transition-all duration-300 hover:bg-gold-700 shadow-lg shadow-gold-600/20 hover:scale-[1.02] active:scale-[0.98] text-center tracking-tight shrink-0"
                   >
                     Explore Properties
                   </a>
@@ -133,8 +133,8 @@ export default function Hero() {
             <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 bg-slate-950/85 backdrop-blur-md border border-white/10 rounded-2xl px-3.5 sm:px-4 py-2 sm:py-3 shadow-2xl flex items-center gap-2.5 sm:gap-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500">
               {/* Animated Live Dot */}
               <div className="relative flex items-center justify-center w-2.5 h-2.5 sm:w-3 sm:h-3 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[#35ddb1] opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-[#35ddb1]" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[#F5C747] opacity-75 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-[#F5C747]" />
               </div>
               <div className="text-left">
                 <div className="text-xs sm:text-sm font-bold text-white tracking-tight flex items-baseline gap-1">
@@ -151,7 +151,7 @@ export default function Hero() {
 
             {/* Overlaid Floating Glassmorphic Stat Block 2: Capital Deployment Counter */}
             <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 bg-white/95 backdrop-blur-md border border-white/20 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 shadow-2xl flex items-center gap-2 group-hover:-translate-x-1 group-hover:translate-y-1 transition-transform duration-500">
-              <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-emerald-50 text-emerald-700 font-bold shrink-0">
+              <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-gold-50 text-gold-700 font-bold shrink-0">
                 ✦
               </div>
               <div className="text-left">
@@ -184,7 +184,7 @@ export default function Hero() {
           ].map((item, idx) => (
             <span
               key={idx}
-              className="text-xs sm:text-sm font-bold tracking-widest text-emerald-800 uppercase whitespace-nowrap"
+              className="text-xs sm:text-sm font-bold tracking-widest text-gold-800 uppercase whitespace-nowrap"
             >
               {item}
             </span>
@@ -206,7 +206,7 @@ export default function Hero() {
           ].map((item, idx) => (
             <span
               key={`dup-${idx}`}
-              className="text-xs sm:text-sm font-bold tracking-widest text-emerald-800 uppercase whitespace-nowrap"
+              className="text-xs sm:text-sm font-bold tracking-widest text-gold-800 uppercase whitespace-nowrap"
             >
               {item}
             </span>

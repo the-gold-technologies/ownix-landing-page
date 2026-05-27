@@ -42,7 +42,7 @@ export default function Footer() {
     <footer
       id="footer"
       ref={containerRef}
-      className="bg-gradient-to-b from-[#184848] via-[#267575] to-[#184848] border-t border-[#2A8282] relative overflow-hidden text-slate-100 opacity-99"
+      className="bg-gradient-to-b from-[#483418] via-[#755526] to-[#483418] border-t border-[#825E2A] relative overflow-hidden text-slate-100 opacity-99"
     >
       {/* Primary Multi-Column Canvas Inspired directly by the uploaded mockup */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -76,7 +76,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 text-white pt-2">
               {/* Facebook */}
               <div
-                className="hover:text-[#35ddb1] transition-colors cursor-default"
+                className="hover:text-[#F5C747] transition-colors cursor-default"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -85,7 +85,7 @@ export default function Footer() {
               </div>
               {/* Twitter */}
               <div
-                className="hover:text-[#35ddb1] transition-colors cursor-default"
+                className="hover:text-[#F5C747] transition-colors cursor-default"
                 aria-label="Twitter"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -94,7 +94,7 @@ export default function Footer() {
               </div>
               {/* LinkedIn */}
               <div
-                className="hover:text-[#35ddb1] transition-colors cursor-default"
+                className="hover:text-[#F5C747] transition-colors cursor-default"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ export default function Footer() {
               </div>
               {/* Instagram */}
               <div
-                className="hover:text-[#35ddb1] transition-colors cursor-default"
+                className="hover:text-[#F5C747] transition-colors cursor-default"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -121,7 +121,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#about"
-                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
+                  className="text-slate-100 hover:text-[#F5C747] transition-colors block"
                 >
                   About Us
                 </a>
@@ -129,7 +129,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#properties"
-                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
+                  className="text-slate-100 hover:text-[#F5C747] transition-colors block"
                 >
                   Our Product
                 </a>
@@ -137,7 +137,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#how-it-works"
-                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
+                  className="text-slate-100 hover:text-[#F5C747] transition-colors block"
                 >
                   Workflow
                 </a>
@@ -145,7 +145,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#faqs"
-                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
+                  className="text-slate-100 hover:text-[#F5C747] transition-colors block"
                 >
                   FAQ
                 </a>
@@ -153,7 +153,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#lead-capture"
-                  className="text-slate-100 hover:text-[#35ddb1] transition-colors block"
+                  className="text-slate-100 hover:text-[#F5C747] transition-colors block"
                 >
                   Investor Access
                 </a>
@@ -168,7 +168,7 @@ export default function Footer() {
             <div className="space-y-4 text-sm text-slate-100">
               {/* Address */}
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#35ddb1] mt-1 shrink-0 stroke-[2]" />
+                <MapPin className="w-4 h-4 text-[#F5C747] mt-1 shrink-0 stroke-[2]" />
                 <span className="leading-relaxed block">
                   A-328 Defence Colony,
                   <br />
@@ -178,10 +178,10 @@ export default function Footer() {
 
               {/* Email */}
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#35ddb1] shrink-0 stroke-[2]" />
+                <Mail className="w-4 h-4 text-[#F5C747] shrink-0 stroke-[2]" />
                 <a
                   href="mailto:ownixrealty@gmail.com"
-                  className="hover:text-[#35ddb1] transition-colors truncate block"
+                  className="hover:text-[#F5C747] transition-colors truncate block"
                 >
                   ownixrealty@gmail.com
                 </a>
@@ -189,10 +189,10 @@ export default function Footer() {
 
               {/* Phone */}
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#35ddb1] shrink-0 stroke-[2]" />
+                <Phone className="w-4 h-4 text-[#F5C747] shrink-0 stroke-[2]" />
                 <a
                   href="tel:+919700001421"
-                  className="hover:text-[#35ddb1] transition-colors block font-mono"
+                  className="hover:text-[#F5C747] transition-colors block font-mono"
                 >
                   +91 97000 01421
                 </a>
@@ -202,7 +202,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Horizontal Border Bar mapping identically to the screenshot baseline */}
-        <div className="mt-16 pt-8 border-t border-[#2A8282] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-100">
+        <div className="mt-16 pt-8 border-t border-[#825E2A] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-100">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
             <span>© {currentYear} Ownix Realty. All rights reserved.</span>
           </div>
@@ -211,19 +211,19 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <a
               href="/legal#terms"
-              className="hover:text-[#35ddb1] transition-colors"
+              className="hover:text-[#F5C747] transition-colors"
             >
               Terms of Service
             </a>
             <a
               href="/legal#privacy"
-              className="hover:text-[#35ddb1] transition-colors"
+              className="hover:text-[#F5C747] transition-colors"
             >
               Privacy Policy
             </a>
             <a
               href="/legal#cookies"
-              className="hover:text-[#35ddb1] transition-colors"
+              className="hover:text-[#F5C747] transition-colors"
             >
               Cookie Policy
             </a>

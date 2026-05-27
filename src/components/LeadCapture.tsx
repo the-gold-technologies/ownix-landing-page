@@ -183,7 +183,7 @@ export default function LeadCapture() {
             <div className="space-y-6 pt-2">
               {/* E-mail Support Block */}
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-gold-600 text-white flex items-center justify-center shadow-md shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -198,7 +198,7 @@ export default function LeadCapture() {
 
               {/* Phone Support Block */}
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-gold-600 text-white flex items-center justify-center shadow-md shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -218,7 +218,7 @@ export default function LeadCapture() {
             <div className="bg-white rounded-[24px] p-8 sm:p-12 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border border-slate-100 w-full">
               {submitted ? (
                 <div className="py-8 text-center animate-in fade-in duration-300">
-                  <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mx-auto mb-4">
+                  <div className="w-14 h-14 rounded-full bg-gold-50 border border-gold-100 flex items-center justify-center text-gold-600 mx-auto mb-4">
                     <CheckCircle2 className="w-7 h-7 font-bold stroke-[2.5]" />
                   </div>
 
@@ -242,7 +242,7 @@ export default function LeadCapture() {
                         investmentBudget: "",
                       });
                     }}
-                    className="text-xs font-bold text-emerald-600 hover:text-emerald-700 tracking-wider uppercase underline"
+                    className="text-xs font-bold text-gold-600 hover:text-gold-700 tracking-wider uppercase underline"
                   >
                     Submit Another
                   </button>
@@ -265,7 +265,7 @@ export default function LeadCapture() {
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="Jane Smith"
-                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
+                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-gold-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                     />
                   </div>
 
@@ -285,7 +285,7 @@ export default function LeadCapture() {
                       value={formData.phoneNumber}
                       onChange={handleChange}
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
+                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-gold-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                     />
                   </div>
 
@@ -305,7 +305,7 @@ export default function LeadCapture() {
                       value={formData.emailAddress}
                       onChange={handleChange}
                       placeholder="jane@domain.com"
-                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
+                      className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-gold-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                     />
                   </div>
 
@@ -324,7 +324,7 @@ export default function LeadCapture() {
                         required
                         value={formData.investmentBudget}
                         onChange={handleChange}
-                        className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-emerald-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all appearance-none cursor-pointer"
+                        className="w-full bg-[#f4f6f8] hover:bg-[#edf0f3] focus:bg-white border border-transparent focus:border-gold-600 rounded-xl px-4 py-3 text-sm text-slate-900 outline-none transition-all appearance-none cursor-pointer"
                       >
                         <option value="" disabled className="text-slate-400">
                           Select...
@@ -352,18 +352,18 @@ export default function LeadCapture() {
                       type="submit"
                       id="lead-submit-cta-btn"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-3 pl-1.5 pr-6 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none disabled:opacity-70 disabled:cursor-wait group"
+                      className="inline-flex items-center gap-3 pl-1.5 pr-6 py-1.5 bg-gold-600 hover:bg-gold-700 text-white rounded-2xl font-medium text-sm transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none disabled:opacity-70 disabled:cursor-wait group"
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="w-8 h-8 rounded-full bg-white text-emerald-600 flex items-center justify-center shrink-0">
-                            <span className="w-3.5 h-3.5 rounded-full border-2 border-emerald-600 border-t-transparent animate-spin" />
+                          <span className="w-8 h-8 rounded-full bg-white text-gold-600 flex items-center justify-center shrink-0">
+                            <span className="w-3.5 h-3.5 rounded-full border-2 border-gold-600 border-t-transparent animate-spin" />
                           </span>
                           <span className="font-bold">Submitting...</span>
                         </>
                       ) : (
                         <>
-                          <span className="w-8 h-8 rounded-full bg-white text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs transition-transform group-hover:scale-105">
+                          <span className="w-8 h-8 rounded-full bg-white text-gold-600 flex items-center justify-center shrink-0 shadow-2xs transition-transform group-hover:scale-105">
                             <ArrowRight className="w-4 h-4 stroke-[2.5]" />
                           </span>
                           <span className="font-bold tracking-wide">

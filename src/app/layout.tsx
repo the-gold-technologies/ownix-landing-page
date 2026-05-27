@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} scroll-smooth antialiased`}>
-      <body className="font-sans bg-white text-slate-900 min-h-screen flex flex-col selection:bg-emerald-100 selection:text-emerald-950">
+      <body className="font-sans bg-white text-slate-900 min-h-screen flex flex-col selection:bg-gold-100 selection:text-gold-950">
         {children}
         <CookieConsent />
       </body>

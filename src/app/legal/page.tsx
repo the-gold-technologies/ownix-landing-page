@@ -28,7 +28,7 @@ export default function LegalPage() {
         {/* Back Link */}
         <a
           href="/"
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 hover:text-emerald-800 mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800 mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to home
@@ -37,7 +37,7 @@ export default function LegalPage() {
         {/* Title */}
         <div className="mb-12">
           <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
-            Legal & <span className="text-emerald-600">Compliance</span>
+            Legal & <span className="text-gold-600">Compliance</span>
           </h1>
           <p className="text-slate-500 max-w-2xl text-sm sm:text-base">
             Please read these documents carefully to understand the terms, privacy guidelines, and cookie policies of the Ownix Realty platform.
@@ -58,7 +58,7 @@ export default function LegalPage() {
                 document.getElementById("terms")?.scrollIntoView({ behavior: "smooth", block: "start" });
                 window.history.pushState(null, "", "#terms");
               }}
-              className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-stone-50 hover:text-emerald-700 transition-all duration-200"
+              className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-stone-50 hover:text-gold-700 transition-all duration-200"
             >
               <FileText className="w-4 h-4 text-slate-400 shrink-0" />
               Terms of Service
@@ -71,7 +71,7 @@ export default function LegalPage() {
                 document.getElementById("privacy")?.scrollIntoView({ behavior: "smooth", block: "start" });
                 window.history.pushState(null, "", "#privacy");
               }}
-              className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-stone-50 hover:text-emerald-700 transition-all duration-200"
+              className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-stone-50 hover:text-gold-700 transition-all duration-200"
             >
               <ShieldAlert className="w-4 h-4 text-slate-400 shrink-0" />
               Privacy Policy
@@ -84,7 +84,7 @@ export default function LegalPage() {
                 document.getElementById("cookies")?.scrollIntoView({ behavior: "smooth", block: "start" });
                 window.history.pushState(null, "", "#cookies");
               }}
-              className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-stone-50 hover:text-emerald-700 transition-all duration-200"
+              className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-700 hover:bg-stone-50 hover:text-gold-700 transition-all duration-200"
             >
               <Cookie className="w-4 h-4 text-slate-400 shrink-0" />
               Cookie Policy
@@ -100,7 +100,7 @@ export default function LegalPage() {
               className="scroll-mt-32 bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-xs space-y-6"
             >
               <div className="flex items-center gap-3 border-b border-slate-100 pb-5">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gold-50 flex items-center justify-center text-gold-600 shrink-0">
                   <FileText className="w-5 h-5" />
                 </div>
                 <div>
@@ -136,7 +136,7 @@ export default function LegalPage() {
               className="scroll-mt-32 bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-xs space-y-6"
             >
               <div className="flex items-center gap-3 border-b border-slate-100 pb-5">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gold-50 flex items-center justify-center text-gold-600 shrink-0">
                   <ShieldAlert className="w-5 h-5" />
                 </div>
                 <div>
@@ -172,7 +172,7 @@ export default function LegalPage() {
               className="scroll-mt-32 bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-xs space-y-6"
             >
               <div className="flex items-center gap-3 border-b border-slate-100 pb-5">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gold-50 flex items-center justify-center text-gold-600 shrink-0">
                   <Cookie className="w-5 h-5" />
                 </div>
                 <div>

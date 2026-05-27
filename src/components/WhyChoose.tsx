@@ -59,13 +59,13 @@ export default function WhyChoose() {
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 font-sans block">
                   Why Choose Ownix Real Estate?
                 </span>
-                <div className="w-10 h-[2px] bg-emerald-600 mt-1" />
+                <div className="w-10 h-[2px] bg-gold-600 mt-1" />
               </div>
             </div>
 
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-slate-900 tracking-tight leading-tight mb-8">
               Real Estate Investing{" "}
-              <span className="text-emerald-600">Made Accessible</span>
+              <span className="text-gold-600">Made Accessible</span>
             </h2>
 
             <div className="space-y-4 text-sm sm:text-base text-slate-500 leading-relaxed max-w-sm mb-10">
@@ -86,7 +86,7 @@ export default function WhyChoose() {
             <div className="pt-2">
               <a
                 href="#properties"
-                className="inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-emerald-600 text-white font-bold text-xs uppercase tracking-widest hover:bg-emerald-700 transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:scale-105 active:scale-95 group"
+                className="inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-gold-600 text-white font-bold text-xs uppercase tracking-widest hover:bg-gold-700 transition-all duration-300 shadow-lg shadow-gold-600/20 hover:scale-105 active:scale-95 group"
               >
                 <span>Explore Now</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -108,7 +108,7 @@ export default function WhyChoose() {
                         idx !== 2 ? "border-b border-slate-100" : ""
                       }`}
                     >
-                      <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 mt-1 shadow-sm shadow-emerald-600/5">
+                      <div className="w-12 h-12 rounded-full bg-gold-50 flex items-center justify-center text-gold-600 shrink-0 mt-1 shadow-sm shadow-gold-600/5">
                         <IconComponent className="w-5 h-5 stroke-[1.5]" />
                       </div>
                       <div className="space-y-1">
@@ -137,7 +137,7 @@ export default function WhyChoose() {
                         idx !== 2 ? "border-b border-slate-100" : ""
                       }`}
                     >
-                      <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 mt-1 shadow-sm shadow-emerald-600/5">
+                      <div className="w-12 h-12 rounded-full bg-gold-50 flex items-center justify-center text-gold-600 shrink-0 mt-1 shadow-sm shadow-gold-600/5">
                         <IconComponent className="w-5 h-5 stroke-[1.5]" />
                       </div>
                       <div className="space-y-1">

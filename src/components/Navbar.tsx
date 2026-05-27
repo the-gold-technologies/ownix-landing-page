@@ -66,8 +66,8 @@ export default function Navbar({ theme = "dark" }: NavbarProps) {
               id={`nav-link-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
               className={`text-xs lg:text-sm font-bold transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 hover:after:w-full after:transition-all after:duration-300 ${
                 isScrolled || theme === "light"
-                  ? "text-slate-700 hover:text-emerald-600 after:bg-emerald-600"
-                  : "text-slate-300 hover:text-white after:bg-[#35ddb1]"
+                  ? "text-slate-700 hover:text-gold-600 after:bg-gold-600"
+                  : "text-slate-300 hover:text-white after:bg-[#F5C747]"
               }`}
             >
               {link.name}
@@ -77,7 +77,7 @@ export default function Navbar({ theme = "dark" }: NavbarProps) {
 
         {/* Right CTA mirroring Digiboost top-right action buttons */}
         <div className="hidden md:flex items-center gap-2 lg:gap-3">
-          {/* Button 1: Persistent Solid filled primary trigger with signature emerald-600 brand token */}
+          {/* Button 1: Persistent Solid filled primary trigger with signature gold-600 brand token */}
           <button
             onClick={() => {
               window.dispatchEvent(
@@ -87,7 +87,7 @@ export default function Navbar({ theme = "dark" }: NavbarProps) {
               );
             }}
             id="nav-cta-button-primary"
-            className="cursor-pointer relative inline-flex items-center justify-center px-4 lg:px-5 py-2 text-xs lg:text-sm font-bold rounded-2xl bg-emerald-600 text-white hover:bg-emerald-700 shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none tracking-tight"
+            className="cursor-pointer relative inline-flex items-center justify-center px-4 lg:px-5 py-2 text-xs lg:text-sm font-bold rounded-2xl bg-gold-600 text-white hover:bg-gold-700 shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none tracking-tight"
           >
             <span>Get Started</span>
           </button>
@@ -112,7 +112,7 @@ export default function Navbar({ theme = "dark" }: NavbarProps) {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`md:hidden p-2 rounded-lg focus:outline-none transition-colors ${
             isScrolled || theme === "light"
-              ? "text-slate-600 hover:text-emerald-700 hover:bg-slate-50"
+              ? "text-slate-600 hover:text-gold-700 hover:bg-slate-50"
               : "text-slate-300 hover:text-white hover:bg-white/5"
           }`}
           aria-label="Toggle menu"
@@ -131,7 +131,7 @@ export default function Navbar({ theme = "dark" }: NavbarProps) {
           className={`md:hidden absolute top-full left-0 right-0 border-b px-4 pt-3 pb-6 transition-all animate-in fade-in duration-200 ${
             isScrolled || theme === "light"
               ? "bg-white border-slate-100 shadow-xl mt-3 rounded-2xl"
-              : "bg-[#041A1A] border-white/5 shadow-2xl backdrop-blur-xl"
+              : "bg-[#1A1204] border-white/5 shadow-2xl backdrop-blur-xl"
           }`}
         >
           <nav className="flex flex-col gap-2">
@@ -143,7 +143,7 @@ export default function Navbar({ theme = "dark" }: NavbarProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`text-base font-bold px-3 py-2 rounded-lg transition-colors ${
                   isScrolled || theme === "light"
-                    ? "text-slate-800 hover:text-emerald-600 hover:bg-slate-50"
+                    ? "text-slate-800 hover:text-gold-600 hover:bg-slate-50"
                     : "text-slate-300 hover:text-white hover:bg-white/5"
                 }`}
               >
@@ -165,7 +165,7 @@ export default function Navbar({ theme = "dark" }: NavbarProps) {
                     }),
                   );
                 }}
-                className="cursor-pointer flex items-center justify-center w-full py-3 text-sm font-bold text-white bg-emerald-600 rounded-2xl shadow-md hover:bg-emerald-700 transition-colors"
+                className="cursor-pointer flex items-center justify-center w-full py-3 text-sm font-bold text-white bg-gold-600 rounded-2xl shadow-md hover:bg-gold-700 transition-colors"
               >
                 Get Started
               </button>

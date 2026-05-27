@@ -295,7 +295,7 @@ export default function PropertyDetails() {
         {/* Supreme Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 gsap-hiw-header">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80 mb-4 shadow-2xs font-mono">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            <Sparkles className="w-3.5 h-3.5 text-gold-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
               Featured Properties
             </span>
@@ -339,7 +339,7 @@ export default function PropertyDetails() {
                       <div
                         className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center font-bold text-base sm:text-xl transition-all duration-500 ${
                           isActive
-                            ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 scale-105"
+                            ? "bg-gold-600 text-white shadow-lg shadow-gold-600/30 scale-105"
                             : "bg-slate-100 text-slate-400"
                         }`}
                       >
@@ -349,7 +349,7 @@ export default function PropertyDetails() {
 
                     {/* Copy Content & Embedded Property Info Grid */}
                     <div className="space-y-2.5 max-w-lg flex-1">
-                      <div className="text-[11px] sm:text-xs font-bold tracking-widest text-emerald-600 uppercase line-clamp-1">
+                      <div className="text-[11px] sm:text-xs font-bold tracking-widest text-gold-600 uppercase line-clamp-1">
                         {step.subtitle}
                       </div>
                       <h3
@@ -409,7 +409,7 @@ export default function PropertyDetails() {
                         {/* Premium Downloadable Resources (PDFs) */}
                         {step.pdfs && step.pdfs.length > 0 && (
                           <div className="space-y-2.5 w-full pt-4 border-t border-slate-100">
-                            <span className="text-[11px] font-bold tracking-wider text-emerald-800 uppercase block">
+                            <span className="text-[11px] font-bold tracking-wider text-gold-800 uppercase block">
                               Downloadable Documents
                             </span>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
@@ -419,18 +419,18 @@ export default function PropertyDetails() {
                                   href={pdf.url}
                                   download
                                   onClick={(e) => e.stopPropagation()}
-                                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200/60 hover:border-emerald-200 text-slate-700 hover:text-emerald-950 transition-all duration-300 group/btn shadow-2xs animate-in fade-in slide-in-from-bottom-2"
+                                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50 hover:bg-gold-50 border border-slate-200/60 hover:border-gold-200 text-slate-700 hover:text-gold-950 transition-all duration-300 group/btn shadow-2xs animate-in fade-in slide-in-from-bottom-2"
                                 >
-                                  <FileText className="w-4 h-4 text-emerald-600 shrink-0" />
+                                  <FileText className="w-4 h-4 text-gold-600 shrink-0" />
                                   <div className="flex flex-col text-left">
-                                    <span className="text-xs font-bold leading-tight group-hover/btn:text-emerald-900">
+                                    <span className="text-xs font-bold leading-tight group-hover/btn:text-gold-900">
                                       {pdf.name}
                                     </span>
                                     <span className="text-[10px] text-slate-400 font-medium">
                                       PDF Document
                                     </span>
                                   </div>
-                                  <Download className="w-3.5 h-3.5 text-slate-400 group-hover/btn:text-emerald-700 ml-auto shrink-0 transition-transform group-hover/btn:translate-y-0.5" />
+                                  <Download className="w-3.5 h-3.5 text-slate-400 group-hover/btn:text-gold-700 ml-auto shrink-0 transition-transform group-hover/btn:translate-y-0.5" />
                                 </a>
                               ))}
                             </div>
@@ -465,8 +465,8 @@ export default function PropertyDetails() {
                   title={steps[activeStep]?.title || ""}
                 />
                 {/* Click Hint Overlay */}
-                <div className="absolute inset-0 bg-emerald-600/0 group-hover/image:bg-emerald-600/10 transition-colors flex items-center justify-center">
-                  <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-emerald-900 text-xs font-bold opacity-0 group-hover/image:opacity-100 transition-all translate-y-2 group-hover/image:translate-y-0 shadow-xl">
+                <div className="absolute inset-0 bg-gold-600/0 group-hover/image:bg-gold-600/10 transition-colors flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-gold-900 text-xs font-bold opacity-0 group-hover/image:opacity-100 transition-all translate-y-2 group-hover/image:translate-y-0 shadow-xl">
                     Click to View Gallery
                   </div>
                 </div>
@@ -474,8 +474,8 @@ export default function PropertyDetails() {
 
               <div className="absolute inset-0 bg-gradient-to-l from-transparent via-slate-950/10 to-slate-950/40 pointer-events-none" />
 
-              {/* Absolute Dark Emerald Wedge Panel scaled perfectly for expanded view */}
-              <div className="absolute top-0 left-0 bottom-0 w-[42%] sm:w-[43%] bg-emerald-950 p-6 sm:p-8 flex flex-col justify-center text-left z-10 border-r border-white/5">
+              {/* Absolute Dark Gold Wedge Panel scaled perfectly for expanded view */}
+              <div className="absolute top-0 left-0 bottom-0 w-[42%] sm:w-[43%] bg-gold-950 p-6 sm:p-8 flex flex-col justify-center text-left z-10 border-r border-white/5">
                 {/* Yellow House Icon scaled cleanly */}
                 <div className="w-11 h-11 ml-8 sm:w-12 sm:h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-4 shadow-xs shrink-0">
                   <Home className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -508,7 +508,7 @@ export default function PropertyDetails() {
                 }),
               );
             }}
-            className="cursor-pointer inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-stone-50 border border-slate-200/80 text-sm font-bold text-emerald-800 hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-sm group"
+            className="cursor-pointer inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-stone-50 border border-slate-200/80 text-sm font-bold text-gold-800 hover:bg-gold-600 hover:text-white transition-all duration-300 shadow-sm group"
           >
             <span>View Details / Express Interest</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -44,8 +44,8 @@ export default function CookieConsent() {
         </button>
 
         <div className="flex items-start gap-4">
-          {/* Circular Icon with Emerald glow */}
-          <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+          {/* Circular Icon with Gold glow */}
+          <div className="w-10 h-10 rounded-2xl bg-gold-50 text-gold-600 flex items-center justify-center shrink-0">
             <Cookie className="w-5 h-5 animate-pulse" />
           </div>
 
@@ -58,7 +58,7 @@ export default function CookieConsent() {
                 We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking &quot;Accept All&quot;, you consent to our use of cookies. Read our{" "}
                 <a
                   href="/legal#cookies"
-                  className="text-emerald-600 hover:text-emerald-700 font-semibold underline underline-offset-2"
+                  className="text-gold-600 hover:text-gold-700 font-semibold underline underline-offset-2"
                 >
                   Cookie Policy
                 </a>{" "}
@@ -70,7 +70,7 @@ export default function CookieConsent() {
             <div className="flex items-center gap-3 pt-1">
               <button
                 onClick={handleAccept}
-                className="cursor-pointer flex-1 inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-colors shadow-sm focus:outline-none"
+                className="cursor-pointer flex-1 inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-gold-600 hover:bg-gold-700 rounded-xl transition-colors shadow-sm focus:outline-none"
               >
                 Accept All
               </button>

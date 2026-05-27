@@ -60,11 +60,11 @@ export default function InvestorInfoSections() {
       <section
         id="why-investors-interested"
         ref={containerRef}
-        className="py-20 sm:py-28 bg-gradient-to-b from-[#184848] via-[#267575] to-[#184848] border-b border-[#2A8282] relative select-none overflow-hidden text-white"
+        className="py-20 sm:py-28 bg-gradient-to-b from-[#483418] via-[#755526] to-[#483418] border-b border-[#825E2A] relative select-none overflow-hidden text-white"
       >
         {/* Luminous radial ambient studio highlights providing an accessible, highly luxurious lighter dark dimension */}
-        <div className="absolute top-1/4 right-1/4 w-[45rem] h-[45rem] bg-[#35ddb1]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/3 left-1/4 w-[40rem] h-[40rem] bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 right-1/4 w-[45rem] h-[45rem] bg-[#F5C747]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/3 left-1/4 w-[40rem] h-[40rem] bg-gold-400/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Expanded 3-Column Asymmetrical Grid housing all 5 local property images perfectly */}
@@ -74,18 +74,18 @@ export default function InvestorInfoSections() {
               {/* Title segment & verbatim intro flow */}
               <div className="gsap-cat-header text-left pt-2">
                 <div className="relative inline-block mb-3">
-                  {/* Sleek mint/teal accent tabs behind initial character */}
-                  <span className="absolute -top-2 -left-2 w-11 h-11 rounded-xl bg-[#35ddb1]/10 border border-[#35ddb1]/20 -z-10" />
-                  <span className="absolute top-2 left-2 w-10 h-10 rounded-lg bg-teal-500/10 -z-10" />
+                  {/* Sleek mint/gold accent tabs behind initial character */}
+                  <span className="absolute -top-2 -left-2 w-11 h-11 rounded-xl bg-[#F5C747]/10 border border-[#F5C747]/20 -z-10" />
+                  <span className="absolute top-2 left-2 w-10 h-10 rounded-lg bg-gold-400/10 -z-10" />
 
                   <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight relative z-10">
-                    <span className="text-[#35ddb1]">W</span>hy Ownix Ownership
+                    <span className="text-[#F5C747]">W</span>hy Ownix Ownership
                     is Growing
                   </h2>
                 </div>
 
                 {/* Signature horizontal mint line matching site-wide aesthetic */}
-                <div className="w-16 h-1 bg-[#35ddb1] rounded-full mt-4 mb-4 shadow-sm shadow-[#35ddb1]/20" />
+                <div className="w-16 h-1 bg-[#F5C747] rounded-full mt-4 mb-4 shadow-sm shadow-[#F5C747]/20" />
 
                 {/* Verbatim intro content */}
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-3">
@@ -112,7 +112,7 @@ export default function InvestorInfoSections() {
                   <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-xs">
                     Lower entry barriers
                   </h3>
-                  <p className="text-xs text-[#35ddb1] mt-1 drop-shadow-xs">
+                  <p className="text-xs text-[#F5C747] mt-1 drop-shadow-xs">
                     Elan Presidential
                   </p>
                 </div>
@@ -137,7 +137,7 @@ export default function InvestorInfoSections() {
                   <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-xs">
                     Better diversification
                   </h3>
-                  <p className="text-xs text-[#35ddb1] mt-1 drop-shadow-xs">
+                  <p className="text-xs text-[#F5C747] mt-1 drop-shadow-xs">
                     Elan Emperor
                   </p>
                 </div>
@@ -159,7 +159,7 @@ export default function InvestorInfoSections() {
                   <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-xs">
                     Passive income opportunities
                   </h3>
-                  <p className="text-xs text-[#35ddb1] mt-1 drop-shadow-xs">
+                  <p className="text-xs text-[#F5C747] mt-1 drop-shadow-xs">
                     DLF Privana
                   </p>
                 </div>
@@ -184,7 +184,7 @@ export default function InvestorInfoSections() {
                   <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-xs">
                     Long-term wealth creation
                   </h3>
-                  <p className="text-xs text-[#35ddb1] mt-1 drop-shadow-xs">
+                  <p className="text-xs text-[#F5C747] mt-1 drop-shadow-xs">
                     Sobha Crescent Suite
                   </p>
                 </div>
@@ -206,7 +206,7 @@ export default function InvestorInfoSections() {
                   <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-xs">
                     Access to premium assets
                   </h3>
-                  <p className="text-xs text-[#35ddb1] mt-1 drop-shadow-xs">
+                  <p className="text-xs text-[#F5C747] mt-1 drop-shadow-xs">
                     Sobha Aranya Sovereign
                   </p>
                 </div>

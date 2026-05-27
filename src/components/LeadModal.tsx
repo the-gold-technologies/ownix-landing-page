@@ -171,7 +171,7 @@ export default function LeadModal() {
 
         {submitted ? (
           <div className="py-8 text-center animate-in fade-in duration-300">
-            <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mx-auto mb-4">
+            <div className="w-14 h-14 rounded-full bg-gold-50 border border-gold-100 flex items-center justify-center text-gold-600 mx-auto mb-4">
               <CheckCircle2 className="w-7 h-7 stroke-[2.5]" />
             </div>
 
@@ -185,7 +185,7 @@ export default function LeadModal() {
 
             <button
               onClick={handleClose}
-              className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm"
+              className="px-6 py-2.5 bg-gold-600 hover:bg-gold-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm"
             >
               Close Window
             </button>
@@ -194,7 +194,7 @@ export default function LeadModal() {
           <div className="text-left">
             {/* Form Header */}
             <div className="mb-6">
-              <span className="text-[10px] font-bold tracking-widest text-emerald-600 uppercase block mb-1">
+              <span className="text-[10px] font-bold tracking-widest text-gold-600 uppercase block mb-1">
                 {formType === "Express Interest" ? "Express Interest" : "Co-Ownership Portal"}
               </span>
               <h3 className="text-2xl font-black text-slate-900 tracking-tight">
@@ -202,7 +202,7 @@ export default function LeadModal() {
               </h3>
               {propertyName && (
                 <p className="text-xs text-slate-500 mt-1">
-                  Selected Property: <strong className="text-emerald-700">{propertyName}</strong>
+                  Selected Property: <strong className="text-gold-700">{propertyName}</strong>
                 </p>
               )}
             </div>
@@ -224,7 +224,7 @@ export default function LeadModal() {
                   value={formData.fullName}
                   onChange={handleChange}
                   placeholder="Jane Smith"
-                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-emerald-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
+                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-gold-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                 />
               </div>
 
@@ -244,7 +244,7 @@ export default function LeadModal() {
                   value={formData.phoneNumber}
                   onChange={handleChange}
                   placeholder="+91 XXXXX XXXXX"
-                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-emerald-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
+                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-gold-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                 />
               </div>
 
@@ -264,7 +264,7 @@ export default function LeadModal() {
                   value={formData.emailAddress}
                   onChange={handleChange}
                   placeholder="jane@domain.com"
-                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-emerald-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
+                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-gold-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder-slate-400"
                 />
               </div>
 
@@ -283,7 +283,7 @@ export default function LeadModal() {
                     required
                     value={formData.investmentBudget}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-emerald-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-gold-600 rounded-xl px-4 py-2.5 text-sm text-slate-900 outline-none transition-all appearance-none cursor-pointer"
                   >
                     <option value="" disabled className="text-slate-400">
                       Select...
@@ -315,7 +315,7 @@ export default function LeadModal() {
                   value={formData.queryMessage}
                   onChange={handleChange}
                   placeholder="Tell us about your interests..."
-                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-emerald-600 rounded-xl px-4 py-2 text-sm text-slate-900 outline-none transition-all placeholder-slate-400 resize-none"
+                  className="w-full bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200/60 focus:border-gold-600 rounded-xl px-4 py-2 text-sm text-slate-900 outline-none transition-all placeholder-slate-400 resize-none"
                 />
               </div>
 
@@ -324,7 +324,7 @@ export default function LeadModal() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-75 disabled:cursor-wait"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 bg-gold-600 hover:bg-gold-700 text-white rounded-xl font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-75 disabled:cursor-wait"
                 >
                   {isSubmitting ? (
                     <>
