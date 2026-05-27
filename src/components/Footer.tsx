@@ -230,7 +230,16 @@ export default function Footer() {
           </div>
         </div>
         <div className=" text-end mt-4 -mb-8">
-          <span className="text-[8px] text-slate-300">Developed by TGT</span>
+          <span className="text-[8px] text-slate-300">
+            Developed by{" "}
+            <a
+              href="https://thegoldtechnologies.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TGT
+            </a>
+          </span>
         </div>
       </div>
     </footer>
