@@ -42,8 +42,11 @@ export default function Footer() {
     <footer
       id="footer"
       ref={containerRef}
-      className="bg-gradient-to-b from-[#483418] via-[#755526] to-[#483418] border-t border-[#825E2A] relative overflow-hidden text-slate-100 opacity-99"
+      className="bg-gradient-to-b from-[#483418] via-[#755526] to-[#483418] relative overflow-hidden text-slate-100 opacity-99"
     >
+      {/* Premium Top Border Line */}
+      <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-transparent via-[#F5C747]/80 via-white/20 to-transparent border-b border-[#2d1e0c] z-10" />
+
       {/* Primary Multi-Column Canvas Inspired directly by the uploaded mockup */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 text-left">
@@ -201,8 +204,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Horizontal Border Bar mapping identically to the screenshot baseline */}
-        <div className="mt-16 pt-8 border-t border-[#825E2A] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-100">
+        {/* Bottom Horizontal Border Bar styled as a premium gradient divider */}
+        <div className="mt-16 mb-8 w-full h-[5px] bg-gradient-to-r from-transparent via-[#F5C747]/85 via-white/30 to-transparent border-y border-[#2d1e0c] rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.3)]" />
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-100">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
             <span>© {currentYear} Ownix Realty. All rights reserved.</span>
           </div>
